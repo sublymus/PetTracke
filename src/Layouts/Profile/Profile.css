@@ -1,0 +1,223 @@
+/* .profile.open{
+
+} */
+
+.profile{
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+    background: rgba(var(--discret-var), 0.04);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    padding-bottom: 200px;
+    transition: 400ms;
+    transform: tr;
+}
+
+.profile .top{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile .top .return{
+    display: none;
+    width: 30px;
+    height: 30px;
+    filter: invert(30%);
+    background: no-repeat center / 80% url(/src/res/arrow-left.png);
+}
+
+.profile .top .title{
+    margin: 0 auto ;
+}
+
+.profile .photo{
+    position: relative;
+    min-width: 200px;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: no-repeat center/50% url(/src/res/user-fill.png);
+}
+
+.profile .photo .edit:hover{
+    scale: 1.1;
+}
+
+.profile .photo .edit{
+    position: absolute;
+    right: 10px;
+    bottom: 10px ;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    filter: invert(40%);
+    border-radius: 50%;
+    background: no-repeat center/80% url(/src/res/write.png), #0002;    
+}
+
+.profile .address{
+    text-align: center;
+    color: var(--discret);
+}
+
+.profile .open-info.open .icon{
+    rotate: 180deg;
+}
+.profile .open-info .icon , .profile .open-info.hide .icon{
+    margin-left: auto;
+    scale: 0.8;
+    background: no-repeat center/cover url(/src/res/chevron-down.png);
+}
+.profile .open-info .email{
+    font-size: 0.9em;
+    text-transform: none;
+}
+.profile .open-info{
+    width: 100%;
+    background: #15ff001e;
+    width: 100%;
+    /* height: 50px; */
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+.profile h2.name{
+    margin-top: 10px;
+}
+
+.profile ._page:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 20px -13px rgba(66, 68, 90, 1);
+}
+.profile ._page{
+    /* background: var(--back-item); */
+    background: #00000005;
+    width: 100%;
+    /* height: 50px; */
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+
+.profile ._page span{
+    display: block;
+    width: 1em;
+    height: 1em;
+    rotate: -90deg;
+    margin-left: auto;
+    background: no-repeat center/cover url(/src/res/chevron-down.png);
+}
+
+
+.profile .disconnection{
+    background: rgba(var(--error-var), 0.3);
+    color: var(--error);
+    width: 100%;
+    text-transform: capitalize;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.profile .disconnection.delete span{
+    background: no-repeat center/cover url(/src/res/x.png); 
+}
+.profile .disconnection span{
+    filter: var(--error-filter);
+    display: block;
+    width: 30px;
+    height:30px;
+    margin-left: auto;
+    background: no-repeat center/cover url(/src/res/log-out.png);
+}
+
+.profile .connexion{
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0 20px;
+    background: var(--back-item);
+}
+
+.profile .connexion .icon{
+    /* filter: var(--error-filter); */
+    display: block;
+    width: 30px;
+    height:30px;
+    margin: 0 20px ;
+    background: no-repeat center/cover url(/src/res/google2.png);
+}
+
+.profile .connexion .name{
+    margin-right: 0.5em;
+}
+
+#root .profile .react-tel-input .form-control{
+    width: calc(100% - 20px);
+}
+.profile label{
+    width: 100%;
+}
+.profile .icon{
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    filter: invert(40%);
+    background: no-repeat center/80% url(/src/res/write.png);
+}
+
+
+.my-address{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.my-address .map-view{
+    width: 100%;
+    height: 100%;
+}
+.my-address .map-view .leaflet-container{
+    height: calc(100% - 200px);
+}
+.my-address h1 span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    filter: invert(30%);
+    background: no-repeat center / 80% url(/src/res/arrow-left.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

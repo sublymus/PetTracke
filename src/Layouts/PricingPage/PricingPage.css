@@ -1,0 +1,47 @@
+
+/* Pricing */
+
+.pricing-page{    
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    padding-bottom: 200px;
+}
+.pricing-page .pricing-ctn{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-right: 20px;   
+    padding-bottom: 200px; 
+}
+
+.pricing-page p.message{
+    margin-bottom: 30px;
+}
+.pricing-page .plan{
+    padding:10%;
+    box-shadow: 0px 0px 10px -3px rgba(var(--discret-var), 0.6);
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.pricing-page .plan .price{
+    margin-bottom: 10px;
+}
+.pricing-page .plan .feature{
+    display: flex;
+    align-items: center;}
+.pricing-page .plan span{
+    filter: var(--success-filter);
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: no-repeat center/40% url(/src/res/mark.png);
+}

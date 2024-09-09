@@ -1,0 +1,79 @@
+.scane-item:hover{
+    scale: 1.05;
+}
+.scane-item {
+    display: inline-flex;
+    min-width: 160px;
+    max-width: 200px;
+    height: 220px;
+    border-radius: 20px;
+    cursor: pointer;
+    flex-direction: column;
+    position: relative;
+    padding-top: 5px;
+    padding: 6px;
+    padding-right: 3px;
+    -webkit-box-shadow: 0px 0px 50px -33px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 50px -33px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 50px -33px rgba(66, 68, 90, 1);
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+
+}
+
+.scane-item>div {
+    display: flex;
+    margin: 3% 0;
+    align-items: center;
+}
+.scane-item .image {
+    min-width: 60px;
+    height: 60px;
+    margin-right: 7px;
+    border-radius: 100%;
+}
+
+.scane-item .is-new {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 10px;
+    border-radius: 20px;
+    color: var(--success-color);
+    background: var(--success);
+}
+
+.scane-item .address div{
+    width: calc( 100%  - 30px);
+}
+.scane-item .address {
+    margin: 10px 0;
+    max-height: 48px;
+    overflow: hidden;
+    align-items: flex-start;
+    box-shadow: 0px 0px 5px 0px rgba(66, 68, 90, 0.3) inset;
+}
+.scane-item .address span {
+    display: block;
+    margin-right: 10px;
+    min-width: 20px;
+    height: 20px;
+    background: no-repeat center/100% url(/src/res/gps.png);
+}
+
+.scane-item .date ,
+.scane-item .time{
+    color: var(--discret);
+    font-size: 0.9em;
+}
+.scane-item .date span,
+.scane-item .time span {
+    display: block;
+    min-width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    background: no-repeat center/90% url(/src/res/date-empty.png);
+}
+
+.scane-item .time span {
+    background: no-repeat center/90% url(/src/res/date-fill.png);
+}

@@ -1,0 +1,172 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--background);
+  color: var(--color);
+} 
+
+#root>.ctn {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+#root .react-tel-input .form-control {
+  border: none;
+  background: initial;
+  /* width: 100%; */
+}
+
+#root .react-tel-input .flag-dropdown {
+  border: none;
+}
+
+.child-viewer {
+  z-index: 9999;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.child-viewer-ctn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+@media (width < 1200px) {
+  #root {
+    padding: 0 !important;
+  }
+}
+
+@media (width < 1000px) {
+  .profile {
+    width: 300px !important;
+  }
+
+}
+
+
+.top-bar {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: #00000011;
+}
+
+.ctn-profile {
+  transition: 400ms;
+  transform: translateX(0vw);
+}
+
+.ctn-profile.open {
+  transition: 400ms;
+  transform: translateX(0vw);
+}
+
+
+
+@media (width < 850px) {
+
+  .ctn-profile {
+    transition: 400ms;
+    transform: translateX(-100vw);
+  }
+
+  .ctn-profile {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: rgba(var(--discret-var), 0.5);
+  }
+
+  .profile .top .return {
+    display: block !important;
+  }
+
+  .profile {
+    width: 400px !important;
+    background: #fff !important;
+    box-shadow: var(--discret) 0px 0px 10px -5px;
+  }
+
+  .center {
+    width: 100% !important;
+  }
+}
+
+
+@media (width < 450px) {
+  .profile {
+    max-width: 100% !important;
+    width: 100% !important;
+    background: #fff !important;
+    box-shadow: var(--discret) 0px 0px 10px -5px;
+  }
+}
+
+
+
+.return:hover {
+  border-radius: 50px;
+  background: no-repeat center/70% url(/src/res/arrow-left.png), #00000009;
+}
+
+.return {
+  display: block;
+  min-width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background: no-repeat center/70% url(/src/res/arrow-left.png);
+}
+
+
+h2 {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+.close:hover {
+  opacity: 0.8;
+}
+
+.close {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;
+  top: 5px;
+  right: 5px;
+  background: no-repeat center / 80% url(/src/res/x.png), #0001;
+}

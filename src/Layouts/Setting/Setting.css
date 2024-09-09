@@ -1,0 +1,91 @@
+.setting {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.setting h2 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.setting .ctn {
+    height: initial;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: #3333 0px 0px 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.setting .title {
+    display: flex;
+    align-items: center;
+}
+
+.setting .title span:hover {
+    background: no-repeat center/80% url(/src/res/arrow-left.png), #3332;
+}
+
+.setting .title span {
+    display: inline-block;
+    width: 25px;
+    margin-right: 20px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    background: no-repeat center/75% url(/src/res/arrow-left.png);
+}
+
+.setting .pref{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #3451;
+    justify-content: space-between;
+}
+.setting .pref.pref-disable{
+    background: #33445505;
+}
+
+.setting .pref .text {
+    width: 230px;
+}
+
+.setting .pref p {
+    font-size: 0.9em;
+    color: var(--discret);
+}
+
+
+.switch-btn.ok{
+    background: #20c02d9a;
+}
+
+.switch-btn{
+    display: flex;
+    padding-left: 1px;
+    align-items: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+    background: #33445529;
+}
+
+.switch-btn.ok span{
+    transform: translateX(20px);
+}
+.switch-btn span{
+    display: block;
+    width: 18px;
+    height: auto;
+    aspect-ratio: 1;
+    background: #fff;
+    border-radius: 20px;
+    transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

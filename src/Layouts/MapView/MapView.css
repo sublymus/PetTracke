@@ -1,0 +1,159 @@
+.map-view {
+    position: relative;
+}
+
+.search-zoon {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 60px;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    width: 100%;
+    background: #3452;
+}
+
+.search-zoon label{
+    position: relative;
+}
+
+.search-zoon .close{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: -5px;
+    right: 0;
+    background: no-repeat center/70% url(/src/res/x.png);
+}
+
+.search-zoon input {
+    background: #fff;
+    padding-right: 32px;
+}
+
+.search-zoon .list {
+    border-radius: 20px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 250px;
+    background: #fff;
+}
+
+.search-zoon .address:hover{
+    background: #0001;
+}
+
+.search-zoon .address {
+    width: 100%;
+    background: #00000005;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    /* max-height: 100px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+.map-view .focus{
+    position: absolute;
+    z-index: 500;
+    width: 32px;
+    height: 32px;
+    bottom: 50px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity:0.8;
+    background: no-repeat center/80% url(/src/res/gps2.png) ,#fff;
+}
+
+.map-view .home{
+    position: absolute;
+    z-index: 500;
+    width: 32px;
+    height: 32px;
+    bottom: 100px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity:0.8;
+    background: no-repeat center/80% url(/src/res/home-empty.png) ,#fff;
+}
+
+
+
+
+
+
+
+
+
+
+.leaflet-container {
+    min-width: 100%;
+    min-height: 300px;
+}
+/* .leaflet-control-zoom{
+    transform: translateY(70px);
+} */
+
+.sidebar {
+    box-sizing: border-box;
+    padding: 2em;
+    width: 30vw;
+}
+
+.sidebar h2,
+.sidebar p,
+.sidebar ul {
+    text-align: left;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar button {
+    width: 100%;
+    font-weight: bold;
+    padding: .8em 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.markersList {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    max-width: 350px;
+    margin: auto;
+    color: salmon;
+  }
+  
+  .markerItem {
+    margin-top: -10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .markerItem:hover {
+    border-bottom: 1px solid salmon;
+  }

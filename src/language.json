@@ -1,0 +1,288 @@
+{
+    "profile_title": {
+        "ru": "Мой аккаунт",
+        "en": "My Account",
+        "fr": "Mon compte"
+    },
+    "email": {
+        "ru": "Эл. почта",
+        "en": "Email",
+        "fr": "Email"
+    },
+    "name": {
+        "ru": "Имя",
+        "en": "Name",
+        "fr": "Nom"
+    },
+    "phone": {
+        "ru": "Телефон",
+        "en": "Phone",
+        "fr": "Téléphone"
+    },
+    "address": {
+        "ru": "Адрес",
+        "en": "Address",
+        "fr": "Adresse"
+    },
+    "setting": {
+        "ru": "Настройки",
+        "en": "Setting",
+        "fr": "Paramètres"
+    },
+    "about": {
+        "ru": "О программе",
+        "en": "About",
+        "fr": "À propos"
+    },
+    "version": {
+        "ru": "Версия",
+        "en": "Version",
+        "fr": "Version"
+    },
+    "app_name": {
+        "ru": "PetTrack",
+        "en": "PetTrack",
+        "fr": "PetTrack"
+    },
+    "connexion": {
+        "ru": "Соединение",
+        "en": "Connexion",
+        "fr": "Connexion"
+    },
+    "disconnection": {
+        "ru": "Отключение",
+        "en": "Disconnection",
+        "fr": "Déconnexion"
+    },
+    "delete_account":{
+        "ru": "",
+        "en": "Delete Account",
+        "fr": ""
+    },
+    "codes_list": {
+        "ru": "Список кодов",
+        "en": "Codes List",
+        "fr": "Liste des codes"
+    },
+    "scane_list": {
+        "ru": "Список сканирований",
+        "en": "Scans List",
+        "fr": "Liste des scans"
+    },
+    "pets_list": {
+        "ru": "Список питомцев",
+        "en": "Pets List",
+        "fr": "Liste des animaux"
+    },
+    "add_new": {
+        "ru": "Добавить новый",
+        "en": "Add new",
+        "fr": "Ajouter nouveau"
+    },
+    "code_title": {
+        "ru": "Детали кода",
+        "en": "Code Detail",
+        "fr": "Détail du code"
+    },
+    "choise_pet": {
+        "ru": "Выбор питомца",
+        "en": "Choice Pet",
+        "fr": "Choix de l'animal"
+    },
+    "code_id": {
+        "ru": "ID кода",
+        "en": "Code ID",
+        "fr": "ID du code"
+    },
+    "remove": {
+        "ru": "Удалить",
+        "en": "Remove",
+        "fr": "Supprimer"
+    },
+    "create": {
+        "ru": "Создать",
+        "en": "Create",
+        "fr": "Créer"
+    },
+    "code_page_bottom_prompt": {
+        "ru": "Сканируйте QR-код, чтобы просмотреть профиль питомца для получения дополнительной информации",
+        "en": "Scan the QR code to view the pet's profile for more details",
+        "fr": "Scannez le QR code pour voir le profil de l'animal pour plus de détails"
+    },
+    "add_pet": {
+        "ru": "Добавить питомца",
+        "en": "Add Pet",
+        "fr": "Ajouter un animal"
+    },
+    "aminal_page_title_1": {
+        "ru": "Детали потерянного питомца",
+        "en": "Lost Pet Details",
+        "fr": "Détails de l'animal perdu"
+    },
+    "aminal_page_title_2": {
+        "ru": "Основная информация о питомце",
+        "en": "Pet's Basic Info",
+        "fr": "Informations de base sur l'animal"
+    },
+    "species": {
+        "ru": "Вид",
+        "en": "Species",
+        "fr": "Espèce"
+    },
+    "breed": {
+        "ru": "Порода",
+        "en": "Breed",
+        "fr": "Race"
+    },
+    "age": {
+        "ru": "Возраст",
+        "en": "Age",
+        "fr": "Âge"
+    },
+    "sex": {
+        "ru": "Пол",
+        "en": "Sex",
+        "fr": "Sexe"
+    },
+    "color": {
+        "ru": "Цвет",
+        "en": "Color",
+        "fr": "Couleur"
+    },
+    "owner": {
+        "ru": "Владелец",
+        "en": "Owner",
+        "fr": "Propriétaire"
+    },
+    "call_owner": {
+        "ru": "Позвонить владельцу",
+        "en": "Call Owner",
+        "fr": "Appeler le propriétaire"
+    },
+    "whatsapp": {
+        "ru": "Whatsapp",
+        "en": "Whatsapp",
+        "fr": "Whatsapp"
+    },
+    "telegram": {
+        "ru": "Telegram",
+        "en": "Telegram",
+        "fr": "Telegram"
+    },
+    "current_location": {
+        "ru": "Текущее местоположение",
+        "en": "Current Location",
+        "fr": "Localisation actuelle"
+    },
+    "medical_info": {
+        "ru": "Медицинская информация",
+        "en": "Medical Information",
+        "fr": "Informations médicales"
+    },
+    "medications": {
+        "ru": "Лекарства",
+        "en": "Medications",
+        "fr": "Médicaments"
+    },
+    "vaccines": {
+        "ru": "Вакцины",
+        "en": "Vaccines",
+        "fr": "Vaccins"
+    },
+    "allergies": {
+        "ru": "Аллергии",
+        "en": "Allergies",
+        "fr": "Allergies"
+    },
+    "conditions": {
+        "ru": "Состояния",
+        "en": "Conditions",
+        "fr": "Conditions"
+    },
+    "aminal_page_title_4": {
+        "ru": "Дополнительные инструкции",
+        "en": "Additional Instructions",
+        "fr": "Instructions supplémentaires"
+    },
+    "owner_info_title": {
+        "ru": "Контактная информация владельца",
+        "en": "Owner's Contact Information",
+        "fr": "Informations de contact du propriétaire"
+    },
+    "qr_code_info_title": {
+        "ru": "Информация о QR коде",
+        "en": "QR Code Information",
+        "fr": "Informations sur le QR code"
+    },
+    "qr_code_prompt": {
+        "ru": "Сканируйте QR-код, чтобы просмотреть профиль питомца для получения дополнительной информации",
+        "en": "Scan the QR code to view the pet's profile for more details",
+        "fr": "Scannez le QR code pour voir le profil de l'animal pour plus de détails"
+    },
+    "animal_about": {
+        "ru": "Инструкции",
+        "en": "Instructions",
+        "fr": "Instructions"
+    },
+    "new_code": {
+        "ru": "Новый код",
+        "en": "New Code",
+        "fr": "Nouveau code"
+    },
+    "mal": {
+        "ru": "Самец",
+        "en": "Male",
+        "fr": "Mâle"
+    },
+    "femmal": {
+        "ru": "Самка",
+        "en": "Female",
+        "fr": "Femelle"
+    },
+    "animal_page_title": {
+        "ru": "Основная информация о питомце",
+        "en": "Pet's Basic Info",
+        "fr": "Informations de base sur l'animal"
+    },
+    "faq":{
+        "ru": "",
+        "en": "FAQ",
+        "fr": ""
+    },
+    "pricing":{
+        "ru": "",
+        "en": "Pricing",
+        "fr": ""
+    },
+    "animal_veto_name":{
+        "ru": "",
+        "en": "Veterinarian Name",
+        "fr": ""
+    },
+    "animal_veto_phone":{
+        "ru": "",
+        "en": "Veterinarian Phone",
+        "fr": ""
+    },
+    "animal_veto_address":{
+        "ru": "",
+        "en": "Veterinarian Address",
+        "fr": ""
+    },
+    "animal_veto_clinic":{
+        "ru": "",
+        "en": "Veterinarian Clinic",
+        "fr": ""
+    },
+    "password":{
+        "ru": "",
+        "en": "Password",
+        "fr": ""
+    },
+    "confirm_password":{
+        "ru": "",
+        "en": "Confirm Password",
+        "fr": ""
+    }
+
+}

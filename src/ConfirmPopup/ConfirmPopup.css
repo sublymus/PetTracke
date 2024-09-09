@@ -1,0 +1,46 @@
+.confirm-popup{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-popup .ctn-popup{
+    padding: 20px;
+    padding-top: 35px;
+    border-radius: 20px;
+    background: var(--back-item);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 320px;
+}
+
+.confirm-popup .btn{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.confirm-popup .btn > div:hover{
+    opacity: 0.8;
+}
+.confirm-popup .btn > div{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 15px;
+    background: rgba(var(--discret-var), 0.3);
+}
+
+.confirm-popup .btn > div.ok-btn{
+    color: var(--error);
+    background: rgba(var(--error-var), 0.3);
+}
