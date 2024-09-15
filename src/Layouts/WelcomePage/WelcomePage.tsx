@@ -39,20 +39,20 @@ function Welcome() {
             <option value="ru">Русский</option>
             <option value="fr">Français</option>
         </select>
-        <h1>WelCome To PetTrack</h1>
+        <h1>{_L('welcome_title')}</h1>
         <div className="center-info">
             <div className="app-name"></div>
             <div className="info">
                 <h1>PetTrack</h1>
-                <p>Ensuring your pet's salety and heath</p>
+                <p>{_L('welcome_message')}</p>
                 <div className="get-start" onClick={() => qs({ welcome_page: 'pricing' }).apply()} >Get Start</div>
             </div>
         </div>
         <div className="description">
-            Keep track of your pets' locations and health with our innovative Qr code technology
+            {_L('welcome_desciption')}
         </div>
-        <div className="login" onClick={() => qs({ welcome_page: 'login' }).apply()} >Login</div>
-        <div className="sign-up" onClick={() => qs({ welcome_page: 'signup' }).apply()}>Sign Up</div>
+        <div className="login" onClick={() => qs({ welcome_page: 'login' }).apply()} >{_L('login')}</div>
+        <div className="sign-up" onClick={() => qs({ welcome_page: 'signup' }).apply()}>{_L('signup')}</div>
     </>
 }
 
@@ -85,9 +85,9 @@ function Connexion() {
     return <div className='connexion-page'>
         <h2>
             <span className='return' onClick={() => navBack()}></span>
-            Connexion Page
+            {_L('connexion_page')}
         </h2>
-        <h1>Welcom to TetTrack</h1>
+        <h1>{_L('welcome_title')}</h1>
 
         <label htmlFor="welcome-input-email">
             <div className="label">{_L('email')} <span className='error'>{emailError}</span></div>
@@ -152,15 +152,15 @@ function Connexion() {
             if (loading) return
 
             if (!validateEmail(collected.email)) {
-                setEmailError('Invalid email');
+                setEmailError(_L('invalid_email'));
                 error = true;
             }
             if (json?.welcome_page == 'signup' && collected.conf_password != collected.password) {
-                setPassorword2Error('the password must be the same');
+                setPassorword2Error(_L('same_password'));
                 error = true;
             }
             if (collected.password.length < 8) {
-                setPassorwordError('the minimum length is 8 characters');
+                setPassorwordError(_L('min_8_pass'));
                 error = true;
             }
             if (!error) {
@@ -179,18 +179,18 @@ function Connexion() {
                     }
                 })
             }
-        }}>{json?.welcome_page == 'login' ? 'Login': 'Sign Up'}</div>
+        }}>{json?.welcome_page == 'login' ? _L('login'): _L('signup')}</div>
         <p className='prompt-account'>{
             json?.welcome_page == 'login'
                 ?
-                <>you don't have an account yet? <span onClick={() => qs({ welcome_page: 'signup' }).apply()}>Sign Up</span></>
+                <>{_L('have_not_account')} <span onClick={() => qs({ welcome_page: 'signup' }).apply()}>{_L('signup')}</span></>
                 :
-                <>Do you already have an account? <span onClick={() => qs({ welcome_page: 'login' }).apply()}>Login</span></>
+                <>{_L('have_account')} <span onClick={() => qs({ welcome_page: 'login' }).apply()}>{_L('login')}</span></>
         }</p>
         <div className="separator"><span></span> or <span></span></div>
         <div className="google-btn" onClick={() => getAccess()}>
             <span></span>
-            Google Connexion
+            Google  {_L('connexion')}
         </div>
     </div>
 }

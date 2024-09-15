@@ -84,7 +84,7 @@
     cursor: pointer;
     filter: invert(40%);
     border-radius: 50%;
-    background: no-repeat center/80% url(/src/res/write.png), #0002;    
+    background: no-repeat center/80% url(/src/res/write.png), #0003;    
 }
 
 .animal-page label{
@@ -132,7 +132,7 @@
     width: 100%;
     display: flex;
     margin: 50px 0;
-
+    gap: 5px;
     min-height: 40px;
     justify-content: space-evenly;
 }
@@ -179,7 +179,6 @@
 
 .animal-page .btns > div.is-edit span {
     filter: var(--error-color-filter);
-    margin-right: 10px;
     background: no-repeat center/70% url(/src/res/trash-2.png);
 }
 
@@ -190,6 +189,7 @@
 .animal-page .lits-codes .title{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }

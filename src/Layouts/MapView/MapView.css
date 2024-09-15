@@ -69,6 +69,40 @@
     background: no-repeat center/80% url(/src/res/gps2.png) ,#fff;
 }
 
+.map-view .loc-message .btns{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+} 
+
+.map-view .loc-message .active{
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: rgba(var(--success-var), 1);
+    color: #fff;
+}
+.map-view .loc-message .ignore{
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: rgba(var(--discret-var), 0.4);
+}
+.map-view .loc-message{
+    position: absolute;
+    z-index: 500;
+    /* width: 32px;
+    height: 32px; */
+    bottom: 50px;
+    right: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: 0px 0px 100px 10px,0px 0px 10px 0px,0px 0px 3px 0px ;
+}
+
 .map-view .home{
     position: absolute;
     z-index: 500;

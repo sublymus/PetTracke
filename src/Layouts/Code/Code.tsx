@@ -10,7 +10,7 @@ import { AnimalInterface, CodeInterface } from '../../Database';
 import { useAnimalStore } from '../Animal/AnimalStore';
 import { Host } from '../../Config';
 import NotifContext from '../../Tools/Notification';
-import { ConfirmPopup } from '../../ConfirmPopup/ConfirmPopup';
+import { ConfirmPopup } from '../../Components/ConfirmPopup/ConfirmPopup';
 
 
 export function CodePage() {
@@ -82,7 +82,7 @@ export function CodePage() {
                             <QRCode
                                 size={256}
                                 style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                value={`${Host}/s_c/${collected?.code_url || ''}`}
+                                value={`${Host||location.host}/s_c/${collected?.code_url || ''}`}
                                 viewBox={`0 0 256 256`}
                             />
                         </div>

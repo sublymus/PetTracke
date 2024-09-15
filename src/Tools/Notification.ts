@@ -68,7 +68,7 @@ export async function removeNotifContext(data: {
  async function get_notif_contexts(data: {
   context_name:string, 
   context_id: string,
-  user: UserInterface
+  // user: UserInterface
 }) {
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${localStorage.getItem('token')}`);
@@ -90,14 +90,14 @@ export async function removeNotifContext(data: {
  async function enableNotifications(data: {
   user_browser_id?: string,
   target: 'all' | 'current',
-  user: UserInterface
+  // user: UserInterface
 }) {
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${localStorage.getItem('token')}`);
-  console.log('....get Browsers');
+  console.log('....enableNotifications');
   const form = new FormData();
 
-  if (data.user_browser_id) form.append('user_browser_id', data.user_browser_id)
+  data.user_browser_id && form.append('user_browser_id', data.user_browser_id)
   form.append('target', data.target)
 
   const response = await fetch(`${Host}/enable_notifications`, {
@@ -114,7 +114,7 @@ export async function removeNotifContext(data: {
  async function disableNotifications(data: {
   user_browser_id?: string,
   target?: 'all' | 'current',
-  user: UserInterface
+  // user: UserInterface
 }) {
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${localStorage.getItem('token')}`);
@@ -140,7 +140,7 @@ export async function removeNotifContext(data: {
   user_agent?: string,
   user_browser_id?: string,
   enable?: boolean,
-  user: UserInterface
+  // user: UserInterface
 }) {
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${localStorage.getItem('token')}`);
@@ -176,6 +176,9 @@ export async function removeNotifContext(data: {
 }
 
  async function requiredNotification() {
+  const data  = await Notification.requestPermission();
+  console.log('data : = >',data);
+
   // Register Service Worker
   console.log("Registering service worker...");
   const register = await navigator.serviceWorker.register(`/worker.js`, {
@@ -184,7 +187,7 @@ export async function removeNotifContext(data: {
   console.log("Service Worker Registered...");
   // Register Push
   console.log("Registering Push...");
-  return await register.pushManager.subscribe({
+    return await register.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: _urlBase64ToUint8Array(publicVapidKey)
   });

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './RatingPage.css'
 import { useRatingStore } from './RatingStore';
+import { _L } from '../../Tools/_L';
 
 export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (data: { star: number, comment?: string }) => any, onCancel?: () => any }) {
     const { add_rating } = useRatingStore()
@@ -14,17 +15,17 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
         <div className="rating-ctn">
             <div className="close" onClick={()=>onCancel?.()}></div>
             <h3>
-                Feedback
+                {_L('feedback')}
             </h3>
-            <h2>We value your Feedback</h2>
-            <h4>Rate Our  App</h4>
+            <h2>{_L('feedback_2')}</h2>
+            <h4>{_L('rate_our_app')}</h4>
             <div className={"rat " + (rat == 1 ? 'active' : '')} onClick={() => setRat(1)}>
                 <div className="check"></div>
                 <div className="text">
                     <div className="stars">
                         <span></span>
                     </div>
-                    Vevry Poor
+                    {_L('very_poor')}
                 </div>
             </div>
             <div className={"rat " + (rat == 2 ? 'active' : '')} onClick={() => setRat(2)}>
@@ -34,7 +35,7 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
                         <span></span>
                         <span></span>
                     </div>
-                    Poor
+                    {_L('poor')}
                 </div>
             </div>
             <div className={"rat " + (rat == 3 ? 'active' : '')} onClick={() => setRat(3)}>
@@ -45,7 +46,7 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
                         <span></span>
                         <span></span>
                     </div>
-                    Average
+                    {_L('average')}
                 </div>
             </div>
             <div className={"rat " + (rat == 4 ? 'active' : '')} onClick={() => setRat(4)}>
@@ -57,7 +58,7 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
                         <span></span>
                         <span></span>
                     </div>
-                    Good
+                    {_L('good')}
                 </div>
             </div>
             <div className={"rat " + (rat == 5 ? 'active' : '')} onClick={() => setRat(5)}>
@@ -70,13 +71,13 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
                         <span></span>
                         <span></span>
                     </div>
-                    Excellent
+                    {_L('excellent')}
                 </div>
             </div>
             <label htmlFor="rating-input-comment">
-                <div className="label">{'Comments'}</div>
+                <div className="label">{_L('comments')}</div>
                 <div className="_flex">
-                    <input id='rating-input-comment' value={comment} placeholder='Comments' type="text"
+                    <input id='rating-input-comment' value={comment} placeholder={_L('comments')} type="text"
                         onChange={e => setComment(e.currentTarget.value)}
                         onKeyUp={e => e.code == 'Enter' && e.currentTarget.blur()}
                     />
@@ -84,8 +85,9 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
                 </div>
             </label>
             <div className="btn">
-                <div className="cancel" onClick={() => onCancel?.()}>Cancel</div>
+                <div className="cancel" onClick={() => onCancel?.()}>{_L('cancel')}</div>
                 <div className="submit" onClick={() => {
+                    if(!rat) return
                     add_rating({
                         env,
                         message:comment,
@@ -101,7 +103,7 @@ export function RatingPage({env, onCancel, onSubmit }: {env:string, onSubmit?: (
                         comment
                     })
                 }
-                }>Submit</div>
+                }>{_L('submit')}</div>
             </div>
         </div >
     </div >

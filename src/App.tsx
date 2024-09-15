@@ -9,19 +9,19 @@ import { useAppRouter, useAppStore } from './AppStore';
 import { ScaneInfo } from './Layouts/Scane/ScaneInfo';
 import NotifContext from './Tools/Notification';
 import { notifPermission } from './Hooks';
-import { PageAuth } from './Layouts/PageAuth/PageAuth';
 import { About } from './Layouts/About/About';
 import { Setting } from './Layouts/Setting/Setting';
 import MapView from './Layouts/MapView/MapView';
 import { AddressInterface } from './Database';
 import { WelcomePage } from './Layouts/WelcomePage/WelcomePage';
 import { PricingPage } from './Layouts/PricingPage/PricingPage';
+import { _L } from './Tools/_L';
 
 // NotifContext.testNotifier()
 
 function App() {
   const { authenticateUser, user , updateUser } = useUserStore()
-  const { pathList, navBack, json, current, qs } = useAppRouter()
+  const { pathList, navBack, json, current } = useAppRouter()
   const { openChild, currentChild, back_color } = useAppStore();
   const profileRef = useRef<HTMLDivElement>(null)
 
@@ -115,10 +115,10 @@ function MyAddress({ address, setAddress }: { address?: AddressInterface, setAdd
       <div className="title">
           <h1> <span onClick={() => {
             navBack()
-          }}></span>Define Your Address</h1>
-          <p>This is that addres who will be show as pets home..</p>
+          }}></span>{_L('my_address')}</h1>
+          <p>{_L('my_address_subtitle')}</p>
       </div>
-      <MapView canChange setAddress={setAddress} address={address} />
+      <MapView mode='user' canChange setAddress={setAddress} address={address} />
   </div>
 }
 export default App;

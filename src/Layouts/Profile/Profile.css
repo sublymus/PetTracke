@@ -81,6 +81,7 @@
     text-transform: none;
 }
 .profile .open-info{
+    position: relative;
     width: 100%;
     background: #15ff001e;
     width: 100%;
@@ -91,6 +92,12 @@
     padding: 10px;
     border-radius: 10px;
     text-transform: capitalize;
+}
+
+.profile ._red-signal{
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .profile h2.name{

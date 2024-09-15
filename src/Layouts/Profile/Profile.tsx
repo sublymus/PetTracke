@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { _L } from '../../Tools/_L'
 import './Profile.css'
 import { FromApiLocation, UserInterface } from '../../Database'
-import { ConfirmPopup } from "../../ConfirmPopup/ConfirmPopup";
+import { ConfirmPopup } from "../../Components/ConfirmPopup/ConfirmPopup";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { useUserStore } from './UserStore'
@@ -24,23 +24,26 @@ export function Profile() {
 
     useEffect(() => {
         if (user && !user?.address) {
-
-            fetch(`http://ip-api.com/json/24.48.0.1`).then(async (response) => {
+            console.log('@@@@@@@@@@@@@@@@@@@@@@');
+            
+            fetch(`https://ipinfo.io/json`).then(async (response) => {
                 try {
                     const a = await response.json() as FromApiLocation;
-                    if (a && a.city && a.country && a.lat && a.lon) {
+                    if (a && a.loc) {
+                        console.log(a);
+
                         updateUser({
                             address: {
                                 id: '',
-                                address: `${a.city}, ${a.regionName || ''}, ${a.country}`,
-                                latitude: a.lat + '',
-                                longitude: a.lon + ''
+                                address: a.region,
+                                latitude: a.loc.split(',')[0] + '',
+                                longitude: a.loc.split(',')[1] + ''
                             }
                         })
                     }
                 } catch (error) { }
             }).catch((error) => {
-                console.log(error);
+                // console.log(error);
             })
         }
     }, [user])
@@ -57,7 +60,7 @@ export function Profile() {
             {
                 user && <>
                     <div className="photo" style={{ background: (collected?.photos?.[0] as any) instanceof Blob ? collected?.photos?.[0] && getImg(URL.createObjectURL(collected.photos[0] as any)) : getImg(collected?.photos?.[0] || '/src/res/user-fill.png') }}>
-                    {/* <div className="photo"> */}
+                        {/* <div className="photo"> */}
                         <label htmlFor='user-photos' className="edit" >
                             <input id='user-photos' style={{ display: 'none' }} type="file" onChange={(e) => {
                                 const files = e.currentTarget.files as any;
@@ -69,12 +72,13 @@ export function Profile() {
                             } />
                         </label>
                     </div>
-                    <h2 className="name">{collected.full_name}</h2>
+                    <h2 className="name">{collected.full_name} {!user.full_name && <div className="_red-signal"></div>}</h2>
                     <div className="address">{limit(collected.address?.address, 50)}</div>
                     <div className={"open-info " + (open_info ? 'open' : 'hide')} onClick={() => setOpen_info(!open_info)}>
-                        <div><h4>Update Account</h4>
+                        <div><h4>{_L('update_account')}</h4>
                             {!open_info && <div className="email">{collected.email}</div>}</div>
                         <div className="icon"></div>
+                        {!open_info && !(user.address && user.phone) && <div className="_red-signal"></div>}
                     </div>
 
                     {
@@ -109,7 +113,8 @@ export function Profile() {
                                 </div>
                             </label>
                             <label htmlFor="profile-input-phone">
-                                <div className="label">{_L('phone')}</div>
+
+                                <div className="label">{_L('phone')} {!user.phone?.phone && <div className="_red-signal"></div>}</div>
                                 <div className="_flex">
                                     <PhoneInput
                                         country={'us'}
@@ -138,7 +143,8 @@ export function Profile() {
                                 </div>
                             </label>
                             <label htmlFor="profile-input-address">
-                                <div className="label">{_L('address')}</div>
+
+                                <div className="label">{_L('address')} {!user.address && <div className="_red-signal"></div>}</div>
                                 <div className="_flex">
                                     <input id='profile-input-address' placeholder='Adress' type="text"
                                         value={collected.address?.address || ''}
@@ -166,29 +172,30 @@ export function Profile() {
                 qs().setAbsPath(['pricing']);
             }}>{_L('pricing')} <span></span></div>
             <div className="version"><span className="app-name">{_L('app_name')}</span> {_L('version')}:1.0.1</div>
-            <div className="disconnection" onClick={() =>{
+            <div className="disconnection" onClick={() => {
                 const rating = localStorage.getItem('user.rating');
-                if(rating){
+                if (rating) {
 
-                }else{
-                    
+                } else {
+
                 }
                 openChild(
                     <ConfirmPopup
                         title='Are you sure to Logout'
-                        confirmText='logout'
+                        confirmText={_L('logout')}
                         onCancel={() => openChild(undefined)}
                         onConfirm={() => disconnection()}
                     />, undefined, '#3455'
-                )}}
+                )
+            }}
             >{_L('disconnection')} <span></span></div>
             <div className="disconnection delete" onClick={() =>
                 openChild(
                     <ConfirmPopup
-                        title='Are you sure to delete your accounct'
-                        confirmText='Delete'
-                        onCancel={()=>openChild(undefined)}
-                        onConfirm={()=>deleteUserAccount()}
+                        title={_L('delete_account_2')}
+                        confirmText={_L('delete')}
+                        onCancel={() => openChild(undefined)}
+                        onConfirm={() => deleteUserAccount()}
                     />, undefined, '#3455'
                 )}>{_L('delete_account')} <span></span></div>
         </div >

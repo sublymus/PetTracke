@@ -4,7 +4,7 @@ const language = ['en','ru','fr'] as const;
 type listLang = typeof language[number]
 const l = (text:keyof typeof lang, _language?:listLang)=>{
     const res = (lang[text]as any)[_language||_L.lang];
-    return  res ?  res : (lang[text]as any)[_L.lang];
+    return  res || text;
 } 
 type _L_TYPE = typeof l & {
     getLang():listLang

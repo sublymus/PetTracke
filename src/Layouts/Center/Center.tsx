@@ -5,15 +5,13 @@ import { useUserStore } from '../Profile/UserStore';
 import { getImg } from '../../Tools/StringFormater';
 import { useCodeStore } from '../Code/CodeStore';
 import { useAnimalStore } from "../Animal/AnimalStore";
-import { useAppRouter, useAppStore } from '../../AppStore';
+import { useAppRouter} from '../../AppStore';
 import { CodeItem } from '../../Components/CodeItem/CodeItem';
 import { ScaneItem } from '../../Components/ScaneItem/ScaneItem';
 import { _L } from '../../Tools/_L';
-import { RatingPage } from '../RatingPage/RatingPage';
 
 export function Center() {
     const { current, qs } = useAppRouter();
-    const { openChild } = useAppStore()
     const { user } = useUserStore();
     const { codes, fetchCodes } = useCodeStore();
     const { scanes } = useScaneStore();
@@ -30,18 +28,7 @@ export function Center() {
 
     return (current('list') || current('/')) && <div className="center">
         <div className="list-codes">
-            <h1 className='center-top-bar'  onClick={()=>{
-            openChild(<RatingPage 
-                env='center'
-                onCancel={()=>{
-                    openChild(undefined)
-                }}
-                onSubmit={(d)=>{
-                    console.log(d);
-                    
-                }}
-                />, true, '#3455'  )
-        }}>
+            <h1 className='center-top-bar' >
                 <div className="account-options" onClick={() => {window.innerWidth<850 && qs({ profile: 'open' }).apply() }}></div>
                 <span className='account-icon' style={{ background: getImg(user?.photos[0]) }} onClick={() => {  window.innerWidth<850 && qs({ profile: 'open' }).apply() }}>
                 </span>

@@ -53,11 +53,50 @@
         "ru": "Отключение",
         "en": "Disconnection",
         "fr": "Déconnexion"
-    },
-    "delete_account":{
-        "ru": "",
+    }, "delete_account": {
+        "ru": "Удалить аккаунт",
         "en": "Delete Account",
-        "fr": ""
+        "fr": "Supprimer le compte"
+    },
+    "faq": {
+        "ru": "Часто задаваемые вопросы",
+        "en": "FAQ",
+        "fr": "FAQ"
+    },
+    "pricing": {
+        "ru": "Цены",
+        "en": "Pricing",
+        "fr": "Tarification"
+    },
+    "animal_veto_name": {
+        "ru": "Имя ветеринара",
+        "en": "Veterinarian Name",
+        "fr": "Nom du vétérinaire"
+    },
+    "animal_veto_phone": {
+        "ru": "Телефон ветеринара",
+        "en": "Veterinarian Phone",
+        "fr": "Téléphone du vétérinaire"
+    },
+    "animal_veto_address": {
+        "ru": "Адрес ветеринара",
+        "en": "Veterinarian Address",
+        "fr": "Adresse du vétérinaire"
+    },
+    "animal_veto_clinic": {
+        "ru": "Клиника ветеринара",
+        "en": "Veterinarian Clinic",
+        "fr": "Clinique vétérinaire"
+    },
+    "password": {
+        "ru": "Пароль",
+        "en": "Password",
+        "fr": "Mot de passe"
+    },
+    "confirm_password": {
+        "ru": "Подтвердите пароль",
+        "en": "Confirm Password",
+        "fr": "Confirmer le mot de passe"
     },
     "codes_list": {
         "ru": "Список кодов",
@@ -244,45 +283,324 @@
         "en": "Pet's Basic Info",
         "fr": "Informations de base sur l'animal"
     },
-    "faq":{
+    "my_address": {
+        "ru": "Укажите ваш адрес",
+        "en": "Define Your Address",
+        "fr": "Définissez votre adresse"
+    },
+    "my_address_subtitle": {
+        "ru": "Это адрес, который будет отображаться как дом для питомца.",
+        "en": "This is that address which will be shown as pet's home.",
+        "fr": "C'est l'adresse qui sera affichée comme le domicile de votre animal."
+    },
+    "welcome_message": {
+        "ru": "Обеспечиваем безопасность и здоровье вашего питомца",
+        "en": "Ensuring your pet's safety and health",
+        "fr": "Assurer la sécurité et la santé de votre animal"
+    },
+    "welcome_title": {
+        "ru": "Добро пожаловать в PetTrack",
+        "en": "Welcome To PetTrack",
+        "fr": "Bienvenue sur PetTrack"
+    },
+    "welcome_desciption": {
+        "ru": "Отслеживайте местоположение и здоровье ваших питомцев с помощью нашей инновационной технологии QR-кодов",
+        "en": "Keep track of your pets' locations and health with our innovative QR code technology",
+        "fr": "Suivez les emplacements et la santé de vos animaux avec notre technologie innovante de code QR"
+    },
+    "login": {
+        "ru": "Войти",
+        "en": "Login",
+        "fr": "Connexion"
+    },
+    "signup": {
+        "ru": "Зарегистрироваться",
+        "en": "Sign up",
+        "fr": "S'inscrire"
+    },
+    "connexion_page": {
+        "ru": "Страница входа",
+        "en": "Connexion Page",
+        "fr": "Page de connexion"
+    },
+    "have_not_account": {
+        "ru": "У вас нет аккаунта?",
+        "en": "You don't have an account yet?",
+        "fr": "Vous n'avez pas encore de compte ?"
+    },
+    "have_account": {
+        "ru": "У вас уже есть аккаунт?",
+        "en": "Do you already have an account?",
+        "fr": "Vous avez déjà un compte ?"
+    },
+    "settings": {
+        "ru": "Настройки",
+        "en": "Settings",
+        "fr": "Paramètres"
+    },
+    "setting_title": {
+        "ru": "Менеджер настроек",
+        "en": "Setting Manager",
+        "fr": "Gestionnaire des paramètres"
+    },
+    "preferences": {
+        "ru": "Предпочтения",
+        "en": "Preferences",
+        "fr": "Préférences"
+    },
+    "email_notifications": {
+        "ru": "Уведомления по электронной почте",
+        "en": "Email Notifications",
+        "fr": "Notifications par e-mail"
+    },
+    "receive_email": {
+        "ru": "Получать обновления по электронной почте",
+        "en": "Receive updates via email",
+        "fr": "Recevoir des mises à jour par e-mail"
+    },
+    "push_notification": {
+        "ru": "Push-уведомления",
+        "en": "Push Notifications",
+        "fr": "Notifications push"
+    },
+    "push_notification_2": {
+        "ru": "Получать уведомления на вашем устройстве",
+        "en": "Get alerts on your device",
+        "fr": "Recevoir des alertes sur votre appareil"
+    },
+    "dark_mode": {
+        "ru": "Темная тема",
+        "en": "Dark Theme",
+        "fr": "Mode sombre"
+    },
+    "dark_mode_2": {
+        "ru": "Изменить тему на темную",
+        "en": "Change theme to the dark theme",
+        "fr": "Changer le thème en mode sombre"
+    },
+    "language": {
+        "ru": "Язык",
+        "en": "Language",
+        "fr": "Langue"
+    },
+    "privacy_options": {
+        "ru": "Опции конфиденциальности",
+        "en": "Privacy Options",
+        "fr": "Options de confidentialité"
+    },
+    "share_data": {
+        "ru": "Делитесь данными с третьими сторонами",
+        "en": "Share Data With Third Parties",
+        "fr": "Partager les données avec des tiers"
+    },
+    "share_data_2": {
+        "ru": "Разрешает обмен данными",
+        "en": "Allows sharing of your data",
+        "fr": "Permet le partage de vos données"
+    },
+    "enable_location": {
+        "ru": "Включить отслеживание местоположения",
+        "en": "Enable Location Tracking",
+        "fr": "Activer le suivi de localisation"
+    },
+    "enable_location_2": {
+        "ru": "Разрешить отслеживание вашего местоположения",
+        "en": "Allow Tracking of your location",
+        "fr": "Autoriser le suivi de votre localisation"
+    },
+    "about_title": {
+        "ru": "Детали пропавшего питомца",
+        "en": "Lost Pet Details",
+        "fr": "Détails de l'animal perdu"
+    },
+    "about_app": {
+        "ru": "О PetTrack",
+        "en": "About PetTrack",
+        "fr": "À propos de PetTrack"
+    },
+    "about_description": {
+        "ru": "PetTrack - это приложение, разработанное для владельцев питомцев, чтобы отслеживать здоровье их питомцев, планировать приемы у ветеринара и общаться с другими любителями животных.",
+        "en": "PetTrack is an app designed for pet owners to monitor their pets' health, schedule vet appointments, and connect with other pet lovers.",
+        "fr": "PetTrack est une application conçue pour les propriétaires d'animaux afin de surveiller la santé de leurs animaux, de planifier des rendez-vous chez le vétérinaire et de se connecter avec d'autres amoureux des animaux."
+    },
+    "our_mission": {
+        "ru": "Наша миссия",
+        "en": "Our Mission",
+        "fr": "Notre mission"
+    },
+    "our_mission_2": {
+        "ru": "Помочь владельцам питомцев следить за здоровьем и активностью их питомцев.",
+        "en": "To help pet owners keep track of their pets' health and activities.",
+        "fr": "Aider les propriétaires d'animaux à suivre la santé et les activités de leurs animaux."
+    },
+    "developer_contact": {
+        "ru": "Контакт с разработчиком",
+        "en": "Developer Contact",
+        "fr": "Contact du développeur"
+    },
+    "development_team": {
+        "ru": "Команда разработки",
+        "en": "Development Team",
+        "fr": "Équipe de développement"
+    },
+    "development_team_2": {
+        "ru": "Команда разработки PetTrack",
+        "en": "PetTrack Development Team",
+        "fr": "Équipe de développement de PetTrack"
+    },
+    "contact_us": {
+        "ru": "Связаться с нами",
+        "en": "Contact Us",
+        "fr": "Contactez-nous"
+    },
+    "follows_us": {
+        "ru": "Следите за нами",
+        "en": "Follows Us",
+        "fr": "Suivez-nous"
+    },
+    "app_version": {
+        "ru": "Версия приложения",
+        "en": "App Version",
+        "fr": "Version de l'application"
+    },
+    "updated_on": {
+        "ru": "Обновлено",
+        "en": "Updated on",
+        "fr": "Mis à jour le"
+    },
+    "feedback": {
+        "ru": "Обратная связь",
+        "en": "Feedback",
+        "fr": "Retour d'information"
+    },
+    "feedback_2": {
+        "ru": "Мы ценим вашу обратную связь",
+        "en": "We value your Feedback",
+        "fr": "Nous apprécions vos retours"
+    },
+    "rate_our_app": {
+        "ru": "Оцените наше приложение",
+        "en": "Rate Our App",
+        "fr": "Évaluez notre application"
+    },
+    "very_poor": {
+        "ru": "Очень плохо",
+        "en": "Very Poor",
+        "fr": "Très mauvais"
+    },
+    "poor": {
+        "ru": "Плохо",
+        "en": "Poor",
+        "fr": "Mauvais"
+    },
+    "average": {
+        "ru": "Средне",
+        "en": "Average",
+        "fr": "Moyenne"
+    },
+    "good": {
+        "ru": "Хорошо",
+        "en": "Good",
+        "fr": "Bon"
+    },
+    "excellent": {
+        "ru": "Отлично",
+        "en": "Excellent",
+        "fr": "Excellent"
+    },
+    "comments": {
+        "ru": "Комментарии",
+        "en": "Comments",
+        "fr": "Commentaires"
+    },
+    "cancel": {
+        "ru": "Отмена",
+        "en": "Cancel",
+        "fr": "Annuler"
+    },
+    "submit": {
+        "ru": "Отправить",
+        "en": "Submit",
+        "fr": "Soumettre"
+    },
+    "invalid_email": {
+        "ru": "Некорректный адрес электронной почты",
+        "en": "Invalid email",
+        "fr": "Email invalide"
+    },
+    "same_password": {
+        "ru": "Пароли должны совпадать",
+        "en": "The password must be the same",
+        "fr": "Le mot de passe doit être identique"
+    },
+    "min_8_pass": {
+        "ru": "Минимальная длина пароля - 8 символов",
+        "en": "The minimum length is 8 characters",
+        "fr": "La longueur minimale est de 8 caractères"
+    },
+    "update_account": {
+        "ru": "Обновить аккаунт",
+        "en": "Update Account",
+        "fr": "Mettre à jour le compte"
+    },
+    "delete_account_2": {
+        "ru": "Вы уверены, что хотите удалить свой аккаунт?",
+        "en": "Are you sure you want to delete your account?",
+        "fr": "Êtes-vous sûr de vouloir supprimer votre compte ?"
+    },
+    "logout": {
+        "ru": "Выйти",
+        "en": "Logout",
+        "fr": "Déconnexion"
+    },
+    "delete": {
+        "ru": "Удалить",
+        "en": "Delete",
+        "fr": "Supprimer"
+    },
+    "active_geo_loc": {
+        "ru": "ОК",
+        "en": "please activate geolocation",
+        "fr": "OK"
+    },
+    "to_help_us": {
         "ru": "",
-        "en": "FAQ",
+        "en": "to help us find our pet",
         "fr": ""
     },
-    "pricing":{
+    "your_pet": {
         "ru": "",
-        "en": "Pricing",
+        "en": "Your Pet",
         "fr": ""
     },
-    "animal_veto_name":{
+    "home_position": {
         "ru": "",
-        "en": "Veterinarian Name",
+        "en": "Home Position",
         "fr": ""
     },
-    "animal_veto_phone":{
+    "we_found": {
         "ru": "",
-        "en": "Veterinarian Phone",
+        "en": "We Found",
         "fr": ""
     },
-    "animal_veto_address":{
+    "is_here": {
         "ru": "",
-        "en": "Veterinarian Address",
+        "en": "Is Here",
         "fr": ""
     },
-    "animal_veto_clinic":{
+    "ignore": {
         "ru": "",
-        "en": "Veterinarian Clinic",
+        "en": "ignore",
         "fr": ""
     },
-    "password":{
+    "active": {
         "ru": "",
-        "en": "Password",
+        "en": "active",
         "fr": ""
     },
-    "confirm_password":{
+    "ok": {
         "ru": "",
-        "en": "Confirm Password",
+        "en": "Ok",
         "fr": ""
     }
-
 }

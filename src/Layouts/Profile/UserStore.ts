@@ -4,6 +4,7 @@ import { Host } from "../../Config";
 import { UserInterface } from "../../Database";
 import { transmit } from "../../Tools/Transmit";
 import { useScaneStore } from "../Scane/ScaneStore";
+import NotifContext from "../../Tools/Notification";
 
 interface UserState {
     user: UserInterface | undefined;
@@ -162,22 +163,30 @@ export const useUserStore = create<UserState>((set) => ({
                 user = await response.json();
                 if (!user.id) return
                 localStorage.setItem('user', JSON.stringify(user));
-
-                set(() => ({ user, openAuth: false }))
+                
+                console.log('-------->>> ', user);
+                
+                
+                set(() => ({ user, openAuth: false }));
                 const subscription = transmit.subscription(user.id);
                 await subscription.create();
                 subscription.onMessage<{ event: 'scane' | 'update_scane' }>(async (data) => {
+                    console.log(data);
+                    
                     switch (data.event) {
                         case 'scane': {
                             useScaneStore.getState().fetchScanes();
                         };
-                            break;
+                        break;
                         case "update_scane": {
                             useScaneStore.getState().fetchScanes();
                         };
-                            break;
+                        break;
                     }
                 })
+                console.log(await NotifContext.required());
+                
+                await NotifContext.sendData(user);
                 return user
             }
         } catch (error) { }

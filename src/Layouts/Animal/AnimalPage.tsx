@@ -335,7 +335,7 @@ export function AnimalPage() {
                 </label>
 
                 <div className="btns">
-                    <div className="cancel" onClick={() => navBack()}><span></span> Cancel</div>
+                    <div className="cancel" onClick={() => navBack()}><span></span> {_L('cancel')}</div>
                     {
                         loading ?
                             <div className="loading"><span></span></div>

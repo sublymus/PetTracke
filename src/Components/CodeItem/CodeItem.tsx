@@ -22,7 +22,7 @@ export function CodeItem({ code ,onClick}: {onClick:()=>any, code: CodeInterface
                 <QRCode
                     size={256}
                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                    value={`${Host}/s_c/${code.code_url}`}
+                    value={`${Host||location.host}/s_c/${code.code_url}`}
                     viewBox={`0 0 256 256`}
                 />
             </div>

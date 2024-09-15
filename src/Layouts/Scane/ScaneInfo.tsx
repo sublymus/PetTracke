@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppRouter, useAppStore } from '../../AppStore'
 // import { useCodeStore } from '../Code/CodeStore'
 import './ScaneInfo.css'
@@ -9,11 +9,13 @@ import { getImg } from '../../Tools/StringFormater';
 import { Host } from '../../Config';
 import MapView from '../MapView/MapView';
 import { useScaneStore } from './ScaneStore';
+import { RatingPage } from '../RatingPage/RatingPage';
 
 
 export function ScaneInfo() {
 
     const { json, current, navBack } = useAppRouter();
+    const { openChild } = useAppStore()
     const { setLang } = useAppStore()
     const j = json as { owner: UserInterface, animal: AnimalInterface, scane: ScaneInterface }
     const { setScaneById, updateScane, scane } = useScaneStore()
@@ -27,17 +29,19 @@ export function ScaneInfo() {
     useEffect(() => {
         if (!isOwner && scane && !scane?.address) {
 
-            fetch(`http://ip-api.com/json/24.48.0.1`).then(async (response) => {
+            fetch(`https://ipinfo.io/json`).then(async (response) => {
                 try {
                     const a = await response.json() as FromApiLocation;
-                    if (a && a.city && a.country && a.lat && a.lon) {
+                    if (a && a.loc) {
+                        console.log(a);
+                        
                         updateScane({
                             id: scane?.id || scane?.id || '',
                             address: {
                                 id: '',
-                                address: `${a.city}, ${a.regionName || ''}, ${a.country}`,
-                                latitude: a.lat + '',
-                                longitude: a.lon + ''
+                                address: a.region,
+                                latitude: a.loc.split(',')[0] + '',
+                                longitude: a.loc.split(',')[1] + ''
                             }
                         })
                     }
@@ -46,13 +50,35 @@ export function ScaneInfo() {
                 console.log(error);
             })
         }
-    }, [scane])
+    }, [scane]);
+
+    const [s] = useState<any>({
+        scane : scane||{}
+    })
+    s.scane = scane;
+    
     return (
         <div className={"scane-info " + (isOwner ? 'owner' : '')}>
             <div className="ctn">
                 <h3 className="title">
                     {
-                        isOwner && <span onClick={() => navBack()}></span>
+                        isOwner && <span onClick={() => {
+                            if(!localStorage.getItem('user.rating')){
+                                openChild(<RatingPage
+                                    env='center'
+                                    onCancel={()=>{
+                                        openChild(undefined)
+                                        navBack()
+                                    }}
+                                    onSubmit={(d)=>{
+                                        console.log(d);
+                                        navBack()
+                                    }}
+                                    />, true, '#3455'  )
+                            }else{
+                                navBack()
+                            }
+                        }}></span>
                     }
                     {_L('aminal_page_title_1')}
                     <select name="language" id="language" value={localStorage.getItem('setting.lang') || 'en'} onChange={(e) => {
@@ -110,9 +136,11 @@ export function ScaneInfo() {
                 <h2>{_L('current_location')}</h2>
                 <p>{scane?.address?.address}</p>
                 <div className="map">
-                    <MapView home={j.owner.address} canChange={!isOwner} address={scane?.address} setAddress={(address) => {
-                        !isOwner && scane && updateScane({
-                            id: scane?.id || '',
+                    <MapView mode={isOwner?'scane':'found'} scane={scane} home={j.owner.address} canChange={!isOwner} address={scane?.address} setAddress={(address) => {
+                        console.log('%%%%%%%%%%' , s.scane);
+                        
+                        !isOwner && updateScane({
+                            id: s.scane.id || '',
                             address
                         })
                     }} />
@@ -138,13 +166,14 @@ export function ScaneInfo() {
                 <p>{j.animal.about}</p>
                 <h2>{_L('qr_code_info_title')}</h2>
                 <div className="_flex">
-                    <div className="qr">
+                    <div className="qr" style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                         <QRCode
                             size={256}
                             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                             value={`${Host}/s_c/${'123456' || ''}`}
                             viewBox={`0 0 256 256`}
                         />
+                        <p>{scane?.code_url}</p>
                     </div>
                     <span>{_L('qr_code_prompt')}</span>
                 </div>
