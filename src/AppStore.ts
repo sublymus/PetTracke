@@ -15,7 +15,10 @@ const Pages = {
         setting:{},
         about:{},
         choise_address:{},
-        pricing:{}
+        pricing:{},
+        admin:{},
+        pet_profile:{},
+        qr_scaner:{}
     }
 }
 

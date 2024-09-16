@@ -1,0 +1,50 @@
+#video-container {
+    line-height: 0;
+    height: 100%;
+    position: absolute;
+    stroke: #64a2f3 !important;
+}
+
+#video-container  video{
+    height: 100%;
+}
+
+#video-container .scan-region-highlight {
+    border-radius: 30px;
+    width: 100%;
+    outline: rgba(0, 0, 0, 0.25) solid 100vmax;
+}
+
+#flash-toggle {
+    display: none;
+}
+
+
+.qr-scanner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.qr-scanner .ctn{
+    position: absolute;
+    top:  0;
+    color: #fff;
+}
+
+.qr-scanner h3{
+    display: flex;
+    font-size: 2em;
+    align-items: center;
+}
+.qr-scanner .return{
+    filter: var(--error-color-filter);
+}
+.qr-scanner .qr_code{
+    position: absolute;
+    bottom: 50px;
+    color: #00b7ff;
+    text-decoration: underline;
+}

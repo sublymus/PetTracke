@@ -5,19 +5,19 @@ import './CodeItem.css'
 import { Host } from '../../Config';
 
 
-export function CodeItem({ code ,onClick}: {onClick:()=>any, code: CodeInterface }) {
+export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:boolean ,onClick:()=>any, code: CodeInterface }) {
 
 
     return (
         <div key={code.id} className="code" onClick={() => onClick()}>
             <div className="notif-new-scane"></div>
-            <div className="animal-info">
+            {animal_info && <div className="animal-info">
                 <div className="image" style={{ background: code.images[0] && getImg(code.images[0]) }}></div>
                 <div className="text _limit-text">
                     <div className="name _limit-text">{code.name}</div>
                     {/* <div className="count">{32}<span></span></div> */}
                 </div>
-            </div>
+            </div>}
             <div className="qr">
                 <QRCode
                     size={256}

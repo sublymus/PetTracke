@@ -1,22 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useAppRouter } from '../../AppStore'
+import { useAppRouter, useAppStore } from '../../AppStore'
 import { useAnimalStore } from './AnimalStore'
 import './AnimalPage.css'
 import { getImg } from '../../Tools/StringFormater';
-import { AnimalInterface, CodeInterface, ListType } from '../../Database';
+import { AnimalInterface } from '../../Database';
 import { _L } from '../../Tools/_L';
-import { useCodeStore } from '../Code/CodeStore';
-import { CodeItem } from '../../Components/CodeItem/CodeItem';
-import { useUserStore } from '../Profile/UserStore';
+import { ConfirmPopup } from '../../Components/ConfirmPopup/ConfirmPopup';
 
 export function AnimalPage() {
 
-    const { current, json, qs, navBack, pathList } = useAppRouter();
-    const { user } = useUserStore();
+    const { current, json, navBack, pathList } = useAppRouter();
     const { animal, setAnimalById, updateAnimal, createAnimal, removeAnimal } = useAnimalStore();
-    const { fetchCodes } = useCodeStore();
+    const { openChild } = useAppStore()
     const [collected, setCollected] = useState<Partial<AnimalInterface>>({});
-    const [codes, setCodes] = useState<ListType<CodeInterface> | undefined>()
     const isNew = current('new_animal');
     const isEdit = current('animal');
     const [loading, setLoading] = useState(false);
@@ -30,18 +26,11 @@ export function AnimalPage() {
                 ...animal
             })
         } else {
-            setCollected({sex:'mal'})
+            setCollected({ sex: 'mal' })
         }
     }, [animal, pathList])
-
-    useEffect(() => {
-        current('animal') && user && fetchCodes({
-            animal_id: animal?.id,
-            no_save: true,
-        }).then(res => {
-            setCodes(res)
-        })
-    }, [user, animal])
+   
+    console.log(animal?.sex);
 
     return (isEdit || isNew) && (
         <div className='animal-page'>
@@ -70,7 +59,7 @@ export function AnimalPage() {
                     } />
                 </div>
 
-                <h2>Basic Infomations</h2>
+                <h2>{_L('basic_info')}</h2>
                 <label htmlFor="animal-input-name">
                     <div className="label">{_L('name')} <span style={{ color: '#f00' }}>*</span></div>
                     <div className="_flex">
@@ -161,19 +150,19 @@ export function AnimalPage() {
                     <div className="_flex">
                         <div className="chex-box">
                             <div className={"mal " + (collected.sex?.toLocaleLowerCase() == 'mal' ? 'active' : '')} onClick={() => {
-                                const c = { ...collected, sex: _L('mal') }
+                                const c = { ...collected, sex: 'mal' }
                                 setCollected(c);
                                 isEdit && updateAnimal(c);
-                            }}>Mal</div>
+                            }}>{_L('mal')}</div>
                             <div className={"fem " + (collected.sex?.toLocaleLowerCase() == 'female' ? 'active' : '')} onClick={() => {
-                                const c = { ...collected, sex: _L('femmal') }
+                                const c = { ...collected, sex: 'female' }
                                 setCollected(c);
                                 isEdit && updateAnimal(c);
-                            }}>Female</div>
+                            }}>{_L('femal')}</div>
                         </div>
                     </div>
                 </label>
-                <h2>Medical Infomations</h2>
+                <h2>{_L('medical_info')}</h2>
                 <label htmlFor="animal-input-medication">
                     <div className="label">{_L('medications')}</div>
                     <div className="_flex">
@@ -225,33 +214,12 @@ export function AnimalPage() {
                         <div className="icon"></div>
                     </div>
                 </label>
-                <label htmlFor="animal-input-conditions">
-                    <div className="label">{_L('conditions')}</div>
-                    <div className="_flex">
-                        <input id='animal-input-conditions' value={collected.conditions} placeholder='Conditions' type="text"
-                            onChange={e => setCollected({ ...collected, conditions: e.currentTarget.value })}
-                            onKeyUp={e => {
-                                if (e.code == 'Enter') {
-                                    e.currentTarget.blur();
-                                }
-                            }}
-                            onBlur={() => {
-                                isEdit && updateAnimal(collected);
-                            }}
-                        />
-                        <div className="icon"></div>
-                    </div>
-                </label>
+
                 <label htmlFor="animal-input-about">
-                    <div className="label">{_L('animal_about')}</div>
+                    <div className="label">{_L('about_pet')}</div>
                     <div className="_flex">
-                        <input id='animal-input-about' value={collected.about} placeholder={'...'} type="text"
+                        <textarea spellCheck={false} id='animal-input-about' value={collected.about} placeholder={'...'}
                             onChange={e => setCollected({ ...collected, about: e.currentTarget.value })}
-                            onKeyUp={e => {
-                                if (e.code == 'Enter') {
-                                    e.currentTarget.blur();
-                                }
-                            }}
                             onBlur={() => {
                                 isEdit && updateAnimal(collected);
                             }}
@@ -260,31 +228,13 @@ export function AnimalPage() {
                     </div>
                 </label>
 
-                <h2> Veterinarian Infomations</h2>
-                
+                <h2>{_L('veto_info')}</h2>
+
                 <label htmlFor="animal-input-veto-name">
                     <div className="label">{_L('animal_veto_name')}</div>
                     <div className="_flex">
                         <input id='animal-input-veto-name' value={collected.veto_name} placeholder={'...'} type="text"
                             onChange={e => setCollected({ ...collected, veto_name: e.currentTarget.value })}
-                            onKeyUp={e => {
-                                if (e.code == 'Enter') {
-                                    e.currentTarget.blur();
-                                }
-                            }}
-                            onBlur={() => {
-                                isEdit && updateAnimal(collected);
-                            }}
-                        />
-                        <div className="icon"></div>
-                    </div>
-                </label>
-
-                <label htmlFor="animal-input-veto-address">
-                    <div className="label">{_L('animal_veto_address')}</div>
-                    <div className="_flex">
-                        <input id='animal-input-veto-address' value={collected.veto_address} placeholder={'...'} type="text"
-                            onChange={e => setCollected({ ...collected, veto_address: e.currentTarget.value })}
                             onKeyUp={e => {
                                 if (e.code == 'Enter') {
                                     e.currentTarget.blur();
@@ -343,20 +293,27 @@ export function AnimalPage() {
                             <div className={"btn " + (isNew ? 'is-new' : 'is-edit') + (collected.name && collected.images?.[0] ? ' ok ' : '')} onClick={() => {
 
                                 if (loading) return
-                                setLoading(true);
 
-                                if (isEdit) {
-                                    animal && removeAnimal(animal.id).then(_res => {
-                                        setLoading(false)
-                                        navBack();
-                                    })
+
+                                if (isEdit && animal) {
+                                    openChild(<ConfirmPopup confirmText={_L('delete')} type='confirm' title='Are you to detelet pet profile ?' onCancel={() => {
+                                        openChild(undefined);
+                                    }}
+                                        onConfirm={() => {
+                                            setLoading(true);
+                                            removeAnimal(animal.id).then(_res => {
+                                                setLoading(false)
+                                                navBack();
+                                            })
+                                        }} />, undefined, '#3455')
                                 } else if (isNew) {
-                                    if(collected.name&& collected.images?.[0]) {
+                                    if (collected.name && collected.images?.[0]) {
+                                        setLoading(true);
                                         createAnimal(collected).then(_res => {
                                             setLoading(false)
                                             navBack();
                                         });
-                                    }else{
+                                    } else {
                                         setLoading(false)
                                     }
                                 }
@@ -368,29 +325,7 @@ export function AnimalPage() {
                     }
                 </div>
             </div>
-            {
-                isEdit && <div className="lits-codes">
-                {
-                    isEdit && <>
-                        <div className="title">
-                            <h2>{_L('codes_list')}</h2>
-                            <div className="add-new" onClick={()=>qs(animal && {animal_id:animal.id}).setAbsPath(['new_code'])}>
-                                <span></span>
-                                {_L('new_code')}
-                            </div>
-                        </div>
-                        <div className="list">
-                            <div className="new"><span></span></div>
-                            {
-                                codes?.list.map((c => (
-                                    <CodeItem key={c.id} code={c} onClick={() => qs({ code_id: c.id }).setAbsPath(['code'])} />
-                                )))
-                            }
-                        </div>
-                    </>
-                }
-            </div>
-            }
+           
         </div>
     )
 }

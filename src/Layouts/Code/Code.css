@@ -170,8 +170,6 @@
     max-height: 80%;
 }
 
-
-
 .animal-info:hover {
     background: rgba(var(--discret-var), 0.05);
 }
@@ -186,6 +184,11 @@
     margin: 20px 0;
 }
 
+.code-page .animal-info h2 {
+ text-align: center;
+ justify-content: center;
+ margin: 14px 0px 4px 0;
+}
 .animal-info .image {
     min-width: 100%;
     height: auto;

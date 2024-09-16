@@ -34,11 +34,13 @@ export function CodePage() {
         if(user && json?.animal_id){
             setAnimalById(json)
         }
-    }, [json, user]);
+    }, [json, pathList, user]);
 
     useEffect(()=>{
-        setCollected({...collected,...animal})
+        
+        animal && setCollected({...collected,animal_id: animal.id,...animal})
     },[animal])
+   
     return (isEdit || isNew) && (
         <div className="code-page">
             <div className="top">
@@ -61,7 +63,7 @@ export function CodePage() {
                     }} />, false, '#3455')
                 }}>{_L('choise_pet')} <span className={isEdit ? '' : 'add'}></span></div>
                 {
-                    collected.name ? <div onClick={()=>qs({animal_id:code?.animal_id}).setAbsPath(['animal'])}>
+                    collected.name ? <div style={{width:'200px'}} onClick={()=>qs({animal:animal, owner:user} ).setAbsPath(['pet_profile'])}>
                         {
                             <AnimalInfo animal={collected as AnimalInterface} />
                         }
@@ -75,6 +77,13 @@ export function CodePage() {
                             <div className="icon"></div>
                         </div>
                     </label>
+                }
+                {
+                    isNew&& collected.name && <div className="qr-scaner-btn" onClick={()=>{
+                        qs(animal && {animal:animal.id}).setAbsPath(['qr_scaner'])
+                    }}>
+                        scaner le code
+                    </div>
                 }
                 {
                     collected.code_url && <>
@@ -133,7 +142,7 @@ export function CodePage() {
                             }
                             NotifContext.required().then(() => {
                                 if (user) {
-                                    NotifContext.sendData(user);
+                                    NotifContext.sendData();
                                     NotifContext.add({
                                         user: user,
                                         context_id: res.id,

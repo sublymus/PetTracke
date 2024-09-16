@@ -1,4 +1,5 @@
 import { useAppRouter } from '../../AppStore';
+import { _L } from '../../Tools/_L';
 import './PricingPage.css'
 
 
@@ -10,36 +11,36 @@ export function PricingPage() {
 
             <h3>
                 <span className='return' onClick={() => navBack()}></span>
-                Subscription Page
+                {_L('subscription_page')}
             </h3>
-            <h2>Choose Your Subscription Plan</h2>
-            <p className='message'>Select a plan that suits your needs for enhanced pet tracking features. Enjoy peace of mind knowing your pet's location and heath are monitored.</p>
+            <h2>{_L('hoose_plan')}</h2>
+            <p className='message'>{_L('plan_message')}</p>
 
             <div className="plan">
-                <h4 className="name">Basic Plan</h4>
-                <h2 className="price">499rub/mo</h2>
-                <div className="feature"><span></span>Track your pet's location</div>
-                <div className="feature"><span></span>Health monitoring</div>
-                <div className="feature"><span></span>Track maximun 2 pets</div>
+                <h4 className="name">{_L('basic_plan')}</h4>
+                <h2 className="price">499rub/m</h2>
+                <div className="feature"><span></span>{_L('track_pet')}</div>
+                <div className="feature"><span></span>{_L('health_monitoring')}</div>
+                <div className="feature"><span></span>{_L('track_pet_max2')}</div>
             </div>
             <div className="plan">
-                <h4 className="name">Premium Plan</h4>
-                <h2 className="price">999rub/mo</h2>
-                <div className="feature"><span></span>All basic Features</div>
-                <div className="feature"><span></span>24/7 support</div>
-                <div className="feature"><span></span>Monthy Heath reports</div>
-                <div className="feature"><span></span>Track maximun 5 pets</div>
+                <h4 className="name">{_L('prem_plan')}</h4>
+                <h2 className="price">999rub/m</h2>
+                <div className="feature"><span></span>{_L('all_basic')}</div>
+                <div className="feature"><span></span>{_L('support_24_7')}</div>
+                <div className="feature"><span></span>{_L('heath_report')}</div>
+                <div className="feature"><span></span>{_L('track_pet_max5')}</div>
             </div>
             <div className="plan">
-                <h4 className="name">Familly Plan</h4>
-                <h2 className="price">1499rub/mo</h2>
-                <div className="feature"><span></span>All Premium Features</div>
-                <div className="feature"><span></span>Familly Sharing</div>
-                <div className="feature"><span></span>Track maximun 10 pets</div>
+                <h4 className="name">{_L('familly_plan')}</h4>
+                <h2 className="price">1499rub/m</h2>
+                <div className="feature"><span></span>{_L('all_prem')}</div>
+                <div className="feature"><span></span>{_L('familly_share')}</div>
+                <div className="feature"><span></span>{_L('track_pet_max10')}</div>
             </div>
-            <h2>Payment Details</h2>
+            <h2>{_L('pay_detail')}</h2>
             <div className="payment">
-                Enter your Payment informations
+            {_L('enter_pay_info')} 
             </div>
         </div>
     </div>

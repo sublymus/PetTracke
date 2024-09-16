@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { Host } from "../../Config";
 import { AnimalInterface, ListType } from "../../Database";
 import { useUserStore } from "../Profile/UserStore";
+import { useCodeStore } from "../Code/CodeStore";
+import { useScaneStore } from "../Scane/ScaneStore";
 
 interface AnimalState {
     animals: ListType<AnimalInterface> | undefined,
@@ -84,6 +86,9 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
         if(json?.isDeleted){
             set(({animals})=>({animals:animals && {...animals, list:animals.list.filter(p=>p.id != animal_id)}}))
         }
+
+        useCodeStore.getState().fetchCodes();
+        useScaneStore.getState().fetchScanes();
         return json?.isDeleted;
     },
     
@@ -142,7 +147,7 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
         if (!json?.animal_id) return;
         let animal = get().animals?.list.find(a => a.id == json.animal_id);
         if (animal) {
-            set(() => ({ animal }));
+            set(() => ({ animal:animal && {...animal} }));
         } else {
             animal = (await get().fetchAnimals({
                 no_save: true,

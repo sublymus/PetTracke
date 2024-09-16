@@ -8,22 +8,24 @@
     padding: 20px 0;
 }
 
-.center .center-top-bar{
+.center .center-top-bar {
     display: flex;
     align-items: center;
 }
-.center h2{
+
+.center h2 {
     display: flex;
-    align-items: center;    
+    align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 30px;
 }
 
-.center h2 .add:hover{
+.center h2 .add:hover {
     background: rgba(var(--impact-var), 0.7);
 }
-.center h2 .add{
+
+.center h2 .add {
     font-weight: 500;
     font-size: 1rem;
     display: flex;
@@ -34,7 +36,8 @@
     padding-right: 10px;
     border-radius: 5px;
 }
-.center h2 span{
+
+.center h2 span {
     display: inline-flex;
     width: 32px;
     height: 32px;
@@ -42,14 +45,18 @@
     background: no-repeat center/80% url(/src/res/plus.png);
 }
 
-.center-top-bar{
+.center-top-bar {
     margin-bottom: 20px;
 }
-.center .account-options:hover ,.center .account-icon:hover{
+
+.center .account-options:hover,
+.center .account-icon:hover {
     transition: 200ms;
     background-size: 75%;
 }
-.center .account-options ,.center .account-icon{
+
+.center .account-options,
+.center .account-icon {
     display: inline-block;
     transition: 200ms;
     min-width: 40px;
@@ -57,12 +64,13 @@
     margin-right: 10px;
     border-radius: 50%;
     cursor: pointer;
-    background: no-repeat center/70% url(/src/res/user-empty.png) , #0001;
+    background: no-repeat center/70% url(/src/res/user-empty.png), #0001;
 }
 
-.center .account-options{
-    background: no-repeat center/70% url(/src/res/align-left.png) , #0001;
+.center .account-options {
+    background: no-repeat center/70% url(/src/res/align-left.png), #0001;
 }
+
 .center .list-codes {
     width: 100%;
     height: 100%;
@@ -133,68 +141,82 @@
 }
 
 .center .animal .image {
-    height: 140px;
-    width: 140px;
+    width: 200px;
+    height: auto;
+    aspect-ratio: 1.5;
     border-radius: 20px;
     box-shadow: 0px 0px 30px -10px rgba(66, 68, 90, 1);
 }
 
 .center .animal .right {
-    display: flex;
-    width: calc(100% - 140px);
     flex-wrap: wrap;
     min-width: 200px;
     padding: 0 20px;
 }
 
-.center .animal .right .text div {
+.center .animal .right div {
     color: var(--discret);
 }
-
-.center .animal .right .animal-scane div {
-    color: var(--discret);
-    font-size: 0.9em;
+.center .animal h3 {
+    margin: 14px 0 7px 0;
 }
-
-.center .animal .animal-scane {
-    margin-left: auto;
-}
-
 
 @media (width < 450px) {
-    .center .animal {
-        max-width: 300px;
+
+    .center .list-column {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
+
+    .center .animal {
+        max-width: 250px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
     .center .animal .image {
         width: 100%;
         height: auto;
-        aspect-ratio: 1;
+        aspect-ratio: 1.5;
         border-radius: 20px;
         box-shadow: 0px 0px 30px -10px rgba(66, 68, 90, 1);
     }
+
     .center .animal .animal-scane {
-        margin-left:initial;
+        margin-left: initial;
     }
-    
+
 }
 
-.not-scane{
+.not-code {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
+    min-width: 200px;
+    height: 120px;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-transform: capitalize;
-    height: 260px;
+    background: rgba(var(--discret-var), 0.1);
+}
+
+.not-scane {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    padding: 20px;
+    height: 120px;
+    border-radius: 10px;
+    text-transform: capitalize;
     background: rgba(var(--discret-var), 0.1);
 }
 
 
-.not-animal{
+.not-animal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,14 +228,4 @@
     text-transform: capitalize;
     background: rgba(var(--discret-var), 0.1);
 }
-.not-code{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 140px;
-    height: 120px;
-    padding: 20px;
-    border-radius: 20px;
-    text-transform: capitalize;
-    background: rgba(var(--discret-var), 0.1);
-}
+

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { _L } from '../../Tools/_L'
 import './Profile.css'
-import { FromApiLocation, UserInterface } from '../../Database'
+import {  UserInterface } from '../../Database'
 import { ConfirmPopup } from "../../Components/ConfirmPopup/ConfirmPopup";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { useUserStore } from './UserStore'
 import { useAppRouter, useAppStore } from '../../AppStore';
 import { getImg, limit } from '../../Tools/StringFormater'
+import NotifContext from '../../Tools/Notification';
 export function Profile() {
 
     const { user, updateUser, disconnection, getAccess, deleteUserAccount } = useUserStore()
@@ -23,29 +24,38 @@ export function Profile() {
     }, [user])
 
     useEffect(() => {
-        if (user && !user?.address) {
-            console.log('@@@@@@@@@@@@@@@@@@@@@@');
-            
-            fetch(`https://ipinfo.io/json`).then(async (response) => {
-                try {
-                    const a = await response.json() as FromApiLocation;
-                    if (a && a.loc) {
-                        console.log(a);
+        (async () => {
+            console.log(await NotifContext.required());
+            await NotifContext.sendData();
+        })()
+    }, [])
+    useEffect(() => {
+        // if (user && !user?.address) {
+        //     console.log('@@@@@@@@@@@@@@@@@@@@@@');
+        //     // fetch('https://api.ipregistry.co/?key=tryout')
+        //     //     .then(response => response.json())
+        //     //     .then(data => console.log({ data }));
 
-                        updateUser({
-                            address: {
-                                id: '',
-                                address: a.region,
-                                latitude: a.loc.split(',')[0] + '',
-                                longitude: a.loc.split(',')[1] + ''
-                            }
-                        })
-                    }
-                } catch (error) { }
-            }).catch((error) => {
-                // console.log(error);
-            })
-        }
+        //     Host == '' && fetch(`https://ipinfo.io/json`).then(async (response) => {
+        //         try {
+        //             const a = await response.json() as FromApiLocation;
+        //             if (a && a.loc) {
+        //                 console.log(a);
+
+        //                 updateUser({
+        //                     address: {
+        //                         id: '',
+        //                         address: a.region,
+        //                         latitude: a.loc.split(',')[0] + '',
+        //                         longitude: a.loc.split(',')[1] + ''
+        //                     }
+        //                 })
+        //             }
+        //         } catch (error) { }
+        //     }).catch(() => {
+        //         // console.log(error);
+        //     })
+        // }
     }, [user])
 
     return (
@@ -181,7 +191,7 @@ export function Profile() {
                 }
                 openChild(
                     <ConfirmPopup
-                        title='Are you sure to Logout'
+                        title={_L('logout_message')}
                         confirmText={_L('logout')}
                         onCancel={() => openChild(undefined)}
                         onConfirm={() => disconnection()}

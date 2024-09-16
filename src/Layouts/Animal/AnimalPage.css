@@ -32,11 +32,11 @@
     margin: 0 auto ;
 }
 
-.animal-page .infos, .animal-page .lits-codes{
+.animal-page .infos{
     width: 100%;
+    max-width: 450px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 20px 0;
     border-radius: 20px;
     padding: 20px;
@@ -63,8 +63,8 @@
     position: relative;
     min-width: 200px;
     height: auto;
-    aspect-ratio: 1;
-    border-radius: 50%;
+    aspect-ratio: 1.5;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -185,41 +185,6 @@
 .animal-page .loading span{
     background: no-repeat center/70% url(/src/res/loading.gif);
 }
-
-.animal-page .lits-codes .title{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.animal-page .lits-codes .title .add-new:hover{
-    opacity: 0.8;
-}
-
-.animal-page .lits-codes .title .add-new{
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: var(--success-color);
-    background: var(--success);
-}
-
-.animal-page .lits-codes .title .add-new span{
-    display: inline-block;
-    min-width: 32px;
-    height: 32px;
-    filter: var(--success-color-filter);
-    background: no-repeat center/80% url(/src/res/qr-code.png);
-}
-
-
-
-
-
 
 
 

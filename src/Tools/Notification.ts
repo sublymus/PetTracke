@@ -193,7 +193,7 @@ export async function removeNotifContext(data: {
   });
 }
 
- async function sendNotificationData(_user: UserInterface) {
+ async function sendNotificationData() {
   let result;
   try {
      result = await navigator.permissions.query({ name: 'notifications' })

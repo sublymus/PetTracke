@@ -238,10 +238,10 @@
         "en": "Conditions",
         "fr": "Conditions"
     },
-    "aminal_page_title_4": {
-        "ru": "Дополнительные инструкции",
-        "en": "Additional Instructions",
-        "fr": "Instructions supplémentaires"
+    "about_pet": {
+        "ru": "",
+        "en": "About Pet",
+        "fr": ""
     },
     "owner_info_title": {
         "ru": "Контактная информация владельца",
@@ -258,11 +258,6 @@
         "en": "Scan the QR code to view the pet's profile for more details",
         "fr": "Scannez le QR code pour voir le profil de l'animal pour plus de détails"
     },
-    "animal_about": {
-        "ru": "Инструкции",
-        "en": "Instructions",
-        "fr": "Instructions"
-    },
     "new_code": {
         "ru": "Новый код",
         "en": "New Code",
@@ -273,7 +268,7 @@
         "en": "Male",
         "fr": "Mâle"
     },
-    "femmal": {
+    "femal": {
         "ru": "Самка",
         "en": "Female",
         "fr": "Femelle"
@@ -602,5 +597,270 @@
         "ru": "",
         "en": "Ok",
         "fr": ""
+    },
+    "not_code_yet":{
+        "ru":"",   
+        "en":"no pets yet",   
+        "fr":""   
+    },
+    "not_scane_yet":{
+        "ru":"",   
+        "en":"no scans yet",   
+        "fr":""   
+    },
+    "not_pets_yet":{
+        "ru":"",   
+        "en":"no pets yet",   
+        "fr":""   
+    },
+    "basic_info":{
+        "ru":"",   
+        "en":"Basic Infomations",   
+        "fr":""   
+    },
+    "veto_info":{
+        "ru":"",   
+        "en":"Veterinarian Infomations",   
+        "fr":""   
+    },
+    "subscription_page":{
+        "ru":"",   
+        "en":"Subscription Page",   
+        "fr":""   
+    },
+    "hoose_plan":{
+        "ru":"",   
+        "en":"Choose Your Subscription Plan",   
+        "fr":""   
+    },
+    "plan_message":{
+        "ru":"",   
+        "en":"Select a plan that suits your needs for enhanced pet tracking features. Enjoy peace of mind knowing your pet's location and heath are monitored.",   
+        "fr":""   
+    },
+    "basic_plan":{
+        "ru":"",   
+        "en":"Basic Plan",   
+        "fr":""   
+    },
+    "track_pet":{
+        "ru":"",   
+        "en":"Track your pet's location",   
+        "fr":""   
+    },
+    "health_monitoring":{
+        "ru":"",   
+        "en":"Health monitoring",   
+        "fr":""   
+    },
+    "track_pet_max2":{
+        "ru":"",   
+        "en":"Track maximun 2 pets",   
+        "fr":""   
+    },
+    "prem_plan":{
+        "ru":"",   
+        "en":"Premium Plan",   
+        "fr":""   
+    },
+    "all_basic":{
+        "ru":"",   
+        "en":"All basic Features",   
+        "fr":""   
+    },
+    "support_24_7":{
+        "ru":"",   
+        "en":"24/7 support",   
+        "fr":""   
+    },
+    "heath_report":{
+        "ru":"",   
+        "en":"Monthy Heath reports",   
+        "fr":""   
+    },
+    "track_pet_max5":{
+        "ru":"",   
+        "en":"Track maximun 5 pets",   
+        "fr":""   
+    },
+    "familly_plan":{
+        "ru":"",   
+        "en":"Familly Plan",   
+        "fr":""   
+    },
+    "all_prem":{
+        "ru":"",   
+        "en":"All Premium Features",   
+        "fr":""   
+    },
+    "familly_share":{
+        "ru":"",   
+        "en":"Familly Sharing",   
+        "fr":""   
+    },
+    "track_pet_max10":{
+        "ru":"",   
+        "en":"Track maximun 10 pets",   
+        "fr":""   
+    },
+    "pay_detail":{
+        "ru":"",   
+        "en":"Payment Details",   
+        "fr":""   
+    },
+    "enter_pay_info":{
+        "ru":"",   
+        "en":"Enter your Payment informations",   
+        "fr":""   
+    },
+    "logout_message":{
+        "ru":"",   
+        "en":"'Are you sure to Logout'",   
+        "fr":""   
+    },
+    "scanne_section":{
+        "ru":"",   
+        "en":"Scanner Section",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
+    },
+    "":{
+        "ru":"",   
+        "en":"",   
+        "fr":""   
     }
 }

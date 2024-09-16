@@ -26,6 +26,9 @@
 
 .scane-info .ctn{
     height: initial;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     max-width: 450px;
     box-shadow: #3333 0px 0px 10px;
     padding: 20px;
@@ -36,18 +39,7 @@
     display: flex;
     align-items: center;
 }
-.scane-info .title span:hover{
-    background: no-repeat center/80% url(/src/res/arrow-left.png),#3332;
-}
-.scane-info .title span{
-    display: inline-block;
-    width: 25px;
-    margin-right: 20px;
-    height: 25px;
-    cursor: pointer;
-    border-radius: 20px;
-    background: no-repeat center/75% url(/src/res/arrow-left.png);
-}
+
 
 .scane-info .qr{
     display: flex;
@@ -103,12 +95,93 @@
     background: no-repeat center/cover url(/src/res/social/telegram.png);
 }
 
-
+.scane-info .animal-info .image {
+    width: 100%;
+    aspect-ratio: 1.5;
+    border-radius: 10px;
+}
+.scane-info .animal-info{
+    align-items: start;
+}
 
 #map{
     width: 100%;
     height: 300px;
 }
+
+.scane-info .edit{
+    display: inline-flex;
+    gap: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 15px 5px 5px;
+    cursor: pointer;
+    color: var(--success-color);
+    background: var(--success);
+}
+
+.scane-info .edit span{
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    filter: var(--success-color-filter);
+    background: no-repeat center/80% url(/src/res/write.png);
+}
+
+
+
+
+ .scane-info .lits-codes{
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: #3333 0px 0px 10px ;
+}
+
+
+
+.scane-info .lits-codes .title h2{
+    margin: 0;
+}
+.scane-info .lits-codes .title{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scane-info .lits-codes .title .add-new:hover{
+    opacity: 0.8;
+}
+
+.scane-info .lits-codes .title .add-new{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--success-color);
+    background: var(--success);
+}
+
+.scane-info .lits-codes .title .add-new span{
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    filter: var(--success-color-filter);
+    background: no-repeat center/80% url(/src/res/qr-code.png);
+}
+
+
 
 
 

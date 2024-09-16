@@ -4,7 +4,6 @@ import { Host } from "../../Config";
 import { UserInterface } from "../../Database";
 import { transmit } from "../../Tools/Transmit";
 import { useScaneStore } from "../Scane/ScaneStore";
-import NotifContext from "../../Tools/Notification";
 
 interface UserState {
     user: UserInterface | undefined;
@@ -184,9 +183,7 @@ export const useUserStore = create<UserState>((set) => ({
                         break;
                     }
                 })
-                console.log(await NotifContext.required());
-                
-                await NotifContext.sendData(user);
+              
                 return user
             }
         } catch (error) { }

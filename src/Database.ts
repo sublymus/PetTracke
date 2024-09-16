@@ -27,6 +27,8 @@ export interface FromApiLocation{
     readme: string
 }
 
+export type UserDetail = UserInterface & {rating?:RatingInterface, codes:ListType<CodeInterface>|undefined, animals:ListType<AnimalInterface>|undefined} 
+
 export interface AddressResultInterface {
 
     place_id: number,
@@ -116,11 +118,9 @@ export interface AnimalInterface {
     medication?: string,
     vaccines?: string,
     allergies?: string,
-    conditions?: string,
     user?: UserInterface,
     veto_name:string,
     veto_phone:string,
-    veto_address:string,
     veto_clinic:string
     created_at: string,
     _count_code?: number,

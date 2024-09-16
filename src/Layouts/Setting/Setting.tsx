@@ -60,7 +60,7 @@ export function Setting() {
                         if (value) {
                             await NotifContext.required();
 
-                            user && await NotifContext.sendData(user);
+                            user && await NotifContext.sendData();
                             user && NotifContext.enable({
                                 target: 'all',
                             });

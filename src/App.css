@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  word-break: break-word;
 }
 
 #root {
@@ -145,13 +146,28 @@ body {
 h2 {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 14px 0 7px 0;
 }
-
+h2, h3, h1{
+  line-height: 1.1em;
+}
 h3 {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 14px 0 7px 0;
+}
+
+textarea{
+  all: unset ;
+  border: 1px solid #00000031;
+  border-radius: 7px;
+  padding: 7px;
+  width: 100%;
+  color: var(--color);
+}
+
+#root > .ctn > div > .top{
+  margin-top: 15px;
 }
 
 .close:hover {
@@ -195,3 +211,4 @@ h3 {
     scale: 3;
   }
 }
+

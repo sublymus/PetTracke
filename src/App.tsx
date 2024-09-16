@@ -16,6 +16,8 @@ import { AddressInterface } from './Database';
 import { WelcomePage } from './Layouts/WelcomePage/WelcomePage';
 import { PricingPage } from './Layouts/PricingPage/PricingPage';
 import { _L } from './Tools/_L';
+import { Admin } from './Layouts/Admin/Admin';
+import { QR_Scaner } from './Layouts/QR_Scaner/QR_Scaner';
 
 // NotifContext.testNotifier()
 
@@ -49,11 +51,12 @@ function App() {
 
   const permission =  notifPermission()
     useEffect(()=>{
-        (user && permission =='granted') && NotifContext.sendData(user);
+        (user && permission =='granted') && NotifContext.sendData();
     },[permission,user]);
 
   return (
     current('scane_info') ? <ScaneInfo /> :
+    current('admin') && json?.uuid == 'by_ng'? <Admin/>:
     !user? <WelcomePage/>:
       <>
         {/* <div className="top-bar">
@@ -76,6 +79,7 @@ function App() {
           <CodePage />
           <About/>
           <Setting/>
+          <QR_Scaner/>
           {current('pricing') && <PricingPage/>}
           {
             current('choise_address') && <MyAddress address={user.address} setAddress={(address) => {
@@ -84,7 +88,7 @@ function App() {
               });
           }} />
           }
-          {current('owner_open_scane') && <ScaneInfo/>}
+          {(current('owner_open_scane')||current('pet_profile') )&& <ScaneInfo/>}
         </div>
         <div className="bottom-bar"></div>
         {
