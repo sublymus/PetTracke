@@ -11,22 +11,23 @@ import { ScaneItem } from '../../Components/ScaneItem/ScaneItem';
 import { _L } from '../../Tools/_L';
 
 export function Center() {
-    const { current, qs } = useAppRouter();
+    const { pathList,current, qs } = useAppRouter();
     const { user } = useUserStore();
     const { codes, fetchCodes } = useCodeStore();
     const { scanes } = useScaneStore();
     const { fetchScanes } = useScaneStore()
     const { animals, fetchAnimals } = useAnimalStore()
-
+    const isHome = (current('list') || current('/')) ;
     useEffect(() => {
+        if(!isHome) return
         if (user) {
             fetchCodes();
             fetchScanes({});
             fetchAnimals();
         }
-    }, [user]);
+    }, [user, pathList]);
 
-    return (current('list') || current('/')) && <div className="center">
+    return isHome && <div className="center">
         <div className="list-codes">
             <h1 className='center-top-bar' >
                 <div className="account-options" onClick={() => { window.innerWidth < 850 && qs({ profile: 'open' }).apply() }}></div>
@@ -36,7 +37,6 @@ export function Center() {
             </h1>
             <h2>{_L('codes_list')} <div className="add" onClick={() => qs().setAbsPath(['new_code'])}><span></span>{_L('add_new')}</div></h2>
             <div className="list">
-                {/* <div className="new" onClick={() => qs().setAbsPath(['new_code'])}><span></span></div> */}
                 {
                     !codes?.list[0] && <div className="not-code">{_L('not_code_yet')}</div>
                 }
@@ -58,7 +58,7 @@ export function Center() {
             </div>
             <h2>{_L('pets_list')}  <div className="add" onClick={() => qs().setAbsPath(['new_animal'])}><span></span>{_L('add_new')}</div></h2>
 
-            <div className="list-column">
+            <div className="list list-animal">
                 {
                     !animals?.list[0] && <div className="not-animal">{_L('not_pets_yet')}</div>
                 }
@@ -68,8 +68,8 @@ export function Center() {
                             <div className="image" style={{ background: a.images[0] && getImg(a.images[0]) }}></div>
                             <div className="right">
                                 <h3 className="name">{a.name}</h3>
-                                <div className="i-2">{a.species}{a.breed && ',' + a.breed}{a.age && ',' + a.age}</div>
-                                <div className="color">{a.color} {a.sex}</div>
+                                <div className="i-2">{a.species}{a.breed &&(((a.species||'') && ', ') + a.breed)}{a.age && (((a.species|| a.breed ||'') &&', ') + a.age +' '+ _L('years'))} </div>
+                                <div className="color">{a.color} {a.sex && ( ((a.color||'') &&', ') + a.sex )}</div>
                             </div>
                         </div>
                     )))

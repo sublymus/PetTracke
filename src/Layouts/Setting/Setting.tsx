@@ -19,14 +19,14 @@ export function Setting() {
     s.setting = setting;
     useEffect(() => {
         try {
-            navigator.permissions.query({ name: 'notifications' }).then(result => {
-                setSetting({ ...s.setting, notif_push: result?.state == 'granted' });
-                result.addEventListener('change', () => {
-                    setSetting({ ...s.setting, notif_push: result?.state == 'granted' });
-                    localStorage.setItem('setting.notif_push', result?.state == 'granted' ? 'true':'')
-                })
+            // navigator.permissions.query({ name: 'notifications' }).then(result => {
+            //     setSetting({ ...s.setting, notif_push: result?.state == 'granted' });
+            //     result.addEventListener('change', () => {
+            //         setSetting({ ...s.setting, notif_push: result?.state == 'granted' });
+            //         localStorage.setItem('setting.notif_push', result?.state == 'granted' ? 'true':'')
+            //     })
 
-            })
+            // })
         } catch (error) {
             console.log(error);
         }
@@ -55,11 +55,9 @@ export function Setting() {
                         <p>{_L('push_notification_2')}</p>
                     </div>
                     <SwitchBtn value={setting.notif_push} setValue={async (value) => {
-                        setSetting({ ...setting, notif_push: value });
-                        localStorage.setItem('setting.notif_push', value ? 'true' : '')
                         if (value) {
                             await NotifContext.required();
-
+                            
                             user && await NotifContext.sendData();
                             user && NotifContext.enable({
                                 target: 'all',
@@ -69,6 +67,8 @@ export function Setting() {
                                 target: 'all',
                             });
                         }
+                        setSetting({ ...setting, notif_push: value });
+                        localStorage.setItem('setting.notif_push', value ? 'true' : '')
                     }} />
                 </div>
                 <div className='pref pref-disable'>

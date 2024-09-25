@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useAppRouter } from '../../AppStore';
 import './QR_Scaner.css'
 import QrScanner from "qr-scanner";
 import { _L } from '../../Tools/_L';
@@ -22,7 +23,7 @@ export function QR_Scaner({ onCancel, onQrFound }: { onCancel?: () => any, onQrF
     const [qr_code, setQr_code] = useState('');
 
     const [s] = useState<any>({});
-
+    
     s.camList = camList;
 
     useEffect(() => {
@@ -31,13 +32,12 @@ export function QR_Scaner({ onCancel, onQrFound }: { onCancel?: () => any, onQrF
         // ####### Web Cam Scanning #######
 
         const scanner = new QrScanner(video.current, result => {
-            const parts = result.data.split('/');
-            const code = parts[parts.length - 1];
-            setQr_code(code)
-            onQrFound?.(code)
-            localStorage.setItem('code_url', code)
+            setQr_code(result.data)
+            onQrFound?.(result.data)
         }, {
-            onDecodeError: (_error) => { },
+            onDecodeError: (_error) => {
+                // console.warn(error);
+            },
             highlightScanRegion: true,
             highlightCodeOutline: true,
         });
@@ -46,37 +46,61 @@ export function QR_Scaner({ onCancel, onQrFound }: { onCancel?: () => any, onQrF
         s.flash = activeFlash
         const updateFlashAvailability = () => {
             scanner.hasFlash().then(hasFlash => {
-                if (hasFlash) {
-                    setActiveFlash(!!s.scanner?.isFlashOn());
-                }
+                console.log('qr flash : ', hasFlash);
+
             });
         };
 
         scanner.start().then(() => {
             updateFlashAvailability();
             QrScanner.listCameras(true).then(cameras => cameras.forEach(({ id, label }) => {
-                setCamList([...(s.camList || []), { id, label }])
+                setCamList([...(s.camList||[]), { id, label }])
             }));
         });
+
+        // QrScanner.hasCamera().then((hasCamera) => {
+        //     console.log('qr hasCamera ', hasCamera);
+
+        // });
         mode_view.current?.addEventListener('change', (e) => {
             videoContainer.current && (videoContainer.current.className = (e.target as any)?.value);
             (scanner as any)._updateOverlay();
         });
 
-        setCamList([...(s.camList || [])])
-        return () => {
+        // document.getElementById('show-scan-region').addEventListener('change', (e) => {
+        //     const input = e.target;
+        //     const label = input.parentNode;
+        //     label.parentNode.insertBefore(scanner.$canvas, label.nextSibling);
+        //     scanner.$canvas.style.display = input.checked ? 'block' : 'none';
+        // });
+
+        // document.getElementById('inversion-mode-select').addEventListener('change', event => {
+        //     scanner.setInversionMode(event.target.value);
+        // });
+
+        // flashToggle.addEventListener('click', () => {
+        //     scanner.toggleFlash().then(() => flashState.textContent = scanner.isFlashOn() ? 'on' : 'off');
+        // });
+
+        // document.getElementById('start-button').addEventListener('click', () => {
+        //     scanner.start();
+        // });
+
+        // document.getElementById('stop-button').addEventListener('click', () => {
+        //     scanner.stop();
+        // });
+        setCamList([...(s.camList||[])])
+        return ()=>{
             s.scanner?.stop();
-            if (s.flash) {
+            if(s.flash){
                 s.scanner?.toggleFlash();
             }
-            s.scanner = null;
         }
     }, [video])
 
-    return <div className="qr-scanner" onClick={(e)=>{
-        e.stopPropagation();
-        e.preventDefault();
-    }}>
+    const { current } = useAppRouter()
+
+    return current('qr_scaner') && <div className="qr-scanner">
         <div id="video-container" ref={videoContainer}>
             <video id="qr-video" ref={video}></video>
         </div>
@@ -94,6 +118,9 @@ export function QR_Scaner({ onCancel, onQrFound }: { onCancel?: () => any, onQrF
                 s.scanner?.toggleFlash().then(() => setActiveFlash(!!s.scanner?.isFlashOn()));
             }}></div>
         </div>
-        <span className='qr_code'>{qr_code}</span>
+        <div className="allow-camera">
+            Allow Use Camera
+        </div>
+            <span className='qr_code'>{qr_code}</span>
     </div>
 }

@@ -133,7 +133,13 @@
 
 
 
- .scane-info .lits-codes{
+.scane-info .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.scane-info .lits-codes{
     width: 100%;
     max-width: 450px;
     display: flex;
@@ -141,12 +147,15 @@
     align-items: center;
     margin: 20px 0;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: #3333 0px 0px 10px ;
 }
 
 
 
+.scane-info .lits-codes .code{
+    margin:7px;
+}
 .scane-info .lits-codes .title h2{
     margin: 0;
 }

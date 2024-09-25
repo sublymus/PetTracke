@@ -184,6 +184,14 @@ export async function removeNotifContext(data: {
   const register = await navigator.serviceWorker.register(`/worker.js`, {
     scope: `/`
   });
+  navigator.serviceWorker.addEventListener('message', (event) => {
+    console.log('messages ------>>>');
+    
+    if (event.data.action === 'playSound') {
+      const audio = new Audio('/src/res/level-up-191997.mp3');
+      audio.play();
+    }
+  });
   console.log("Service Worker Registered...");
   // Register Push
   console.log("Registering Push...");

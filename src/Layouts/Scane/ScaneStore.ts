@@ -28,7 +28,6 @@ export const useScaneStore = create<ScaneState>((set, get) => ({
         if (s) {
             set(() => ({ scane: s }));
         } else {
-            console.log('EEEEEEEEEEEEEEEEEEEEEEEEEE');
             
             try {
                 const response = await fetch(`${Host}/get_scanes/?scane_id=${scane_id}`);
@@ -56,8 +55,7 @@ export const useScaneStore = create<ScaneState>((set, get) => ({
         if (!filter?.no_save) {
             set(() => ({ scanes }))
         }
-        console.log(scanes);
-
+        
         return scanes
     },
     async updateScane(scane) {
@@ -88,14 +86,12 @@ export const useScaneStore = create<ScaneState>((set, get) => ({
         });
 
         const _scane = await response.json();
-        console.log({ _scane });
-
+     
         if (!_scane?.id) return
         set(({scanes}) => ({
             scanes:scanes && {...scanes, list:scanes.list.map(s=>s.id == _scane.id?{...s,..._scane}:s)},
             scane: _scane,
         }));
-        console.log({_scane});
         
         return _scane
     }

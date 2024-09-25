@@ -195,3 +195,28 @@
     aspect-ratio: 1;
     border-radius: 50px;
 }
+
+
+
+.code-page .qr-scaner-btn:hover{
+    opacity: 0.8;
+}
+
+.code-page .qr-scaner-btn{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--success-color);
+    background: var(--success);
+}
+
+.code-page .qr-scaner-btn span{
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    filter: var(--success-color-filter);
+    background: no-repeat center/80% url(/src/res/qr-code.png);
+}
+

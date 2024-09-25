@@ -84,8 +84,6 @@ export const useCodeStore = create<CodeState>((set,get) => ({
 
         const _code = await response.json();
         
-        console.log(_code);
-        
 
         if (!_code?.id) return
         set(({codes}) => ({
@@ -122,8 +120,7 @@ export const useCodeStore = create<CodeState>((set,get) => ({
         if (!filter?.no_save) {
             set(() => ({ codes }))
         }
-        console.log(codes);
-
+       
         return codes
     },
 }))

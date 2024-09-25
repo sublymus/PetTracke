@@ -12,27 +12,27 @@ interface UserState {
     deleteUserAccount(): Promise<void>;
     authenticateUser(): Promise<void>;
     getAccess(): Promise<void>;
-    create_user(data:{
-        mode:'login'|'signup'
-        email:string,
-        password:string,
-    }):Promise<UserInterface|undefined>
+    create_user(data: {
+        mode: 'login' | 'signup'
+        email: string,
+        password: string,
+    }): Promise<UserInterface | undefined>
     updateUser(data: Partial<UserInterface>): Promise<void>;
     getHeaders(): { user: UserInterface, headers: Headers } | undefined
 }
 export const useUserStore = create<UserState>((set) => ({
     user: undefined,
     openAuth: false,
-    async create_user({email, password, mode}){
+    async create_user({ email, password, mode }) {
         const h = useUserStore.getState().getHeaders();
         if (!h) return
         const formData = new FormData();
-        
+
         formData.append('mode', mode);
         formData.append('email', email);
         formData.append('password', password);
-        
-        
+
+
         const response = await fetch(`${Host}/create_user`, {
             method: 'POST',
             body: formData,
@@ -40,18 +40,17 @@ export const useUserStore = create<UserState>((set) => ({
         });
 
         const user = await response.json();
-        console.log('create_user == >>>', { user });
 
         if (!user?.id) return user?.message
         set(() => ({
             user,
         }));
         localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('token',user.token||'');
+        localStorage.setItem('token', user.token || '');
         return user;
 
     },
-    async deleteUserAccount(){
+    async deleteUserAccount() {
         const h = useUserStore.getState().getHeaders();
         if (!h) return
 
@@ -62,31 +61,29 @@ export const useUserStore = create<UserState>((set) => ({
         await fetch(`${Host}/delete_user_account`, requestOptions)
 
         localStorage.removeItem('user');
-        set(() => ({ user: undefined,openAuth: true }));
+        set(() => ({ user: undefined, openAuth: true }));
     },
     async updateUser(data) {
 
         const h = useUserStore.getState().getHeaders();
         if (!h) return
         const formData = new FormData();
-        
+
         if (data.photos) {
             let l = [];
-            
+
             const imgs = (data as UserInterface & { photos: (string | File)[] }).photos;
-            console.log('photos', data.photos, imgs);
-            
+
             for (let i = 0; i < imgs.length; i++) {
-                if((imgs[i] as any) instanceof Blob) {
+                if ((imgs[i] as any) instanceof Blob) {
                     l.push(`photos_${i}`)
                     formData.append('photos_' + i, imgs[i]);
-                }else{
+                } else {
                     l.push(imgs[i]);
                 }
             }
-            console.log(l);
-        
-            formData.append('photos',JSON.stringify(l));
+
+            formData.append('photos', JSON.stringify(l));
             delete data.photos
         }
         if (data.phone) {
@@ -106,7 +103,6 @@ export const useUserStore = create<UserState>((set) => ({
         });
 
         const user = await response.json();
-        console.log('update == >>>', { user });
 
         if (!user?.id) return
         set(() => ({
@@ -125,7 +121,7 @@ export const useUserStore = create<UserState>((set) => ({
         await fetch(`${Host}/disconnection`, requestOptions)
 
         localStorage.removeItem('user');
-        set(() => ({ user: undefined,  openAuth: true }));
+        set(() => ({ user: undefined, openAuth: true }));
     },
     async getAccess() {
         window.open(
@@ -162,28 +158,26 @@ export const useUserStore = create<UserState>((set) => ({
                 user = await response.json();
                 if (!user.id) return
                 localStorage.setItem('user', JSON.stringify(user));
-                
-                console.log('-------->>> ', user);
-                
-                
                 set(() => ({ user, openAuth: false }));
                 const subscription = transmit.subscription(user.id);
                 await subscription.create();
                 subscription.onMessage<{ event: 'scane' | 'update_scane' }>(async (data) => {
                     console.log(data);
-                    
+
                     switch (data.event) {
                         case 'scane': {
                             useScaneStore.getState().fetchScanes();
+                            const audio = new Audio(`${Host}/src/res/level-up-191997.mp3`);
+                            audio.play()
                         };
-                        break;
+                            break;
                         case "update_scane": {
                             useScaneStore.getState().fetchScanes();
                         };
-                        break;
+                            break;
                     }
                 })
-              
+
                 return user
             }
         } catch (error) { }
@@ -198,3 +192,4 @@ export const useUserStore = create<UserState>((set) => ({
         }
     }
 }));
+

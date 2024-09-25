@@ -13,7 +13,7 @@ export function PricingPage() {
                 <span className='return' onClick={() => navBack()}></span>
                 {_L('subscription_page')}
             </h3>
-            <h2>{_L('hoose_plan')}</h2>
+            <h2>{_L('choose_plan')}</h2>
             <p className='message'>{_L('plan_message')}</p>
 
             <div className="plan">

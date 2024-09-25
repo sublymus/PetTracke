@@ -21,6 +21,7 @@
 
 
 .qr-scanner{
+    background: #000d;
     position: relative;
     display: flex;
     justify-content: center;
@@ -47,4 +48,15 @@
     bottom: 50px;
     color: #00b7ff;
     text-decoration: underline;
+}
+.qr-scanner .flash{
+    width: 40px;
+    height: 40px;
+    filter: invert();
+    background: no-repeat center/60% url(/src/res/no-flash.png);
+}
+
+
+.qr-scanner .flash.active{
+    background: no-repeat center/60% url(/src/res/flash.png);
 }

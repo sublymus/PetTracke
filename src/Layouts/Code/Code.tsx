@@ -11,6 +11,7 @@ import { useAnimalStore } from '../Animal/AnimalStore';
 import { Host } from '../../Config';
 import NotifContext from '../../Tools/Notification';
 import { ConfirmPopup } from '../../Components/ConfirmPopup/ConfirmPopup';
+import { QR_Scaner } from '../QR_Scaner/QR_Scaner';
 
 
 export function CodePage() {
@@ -25,19 +26,25 @@ export function CodePage() {
     const isEdit = current('code');
     const [collected, setCollected] = useState<Partial<CodeInterface>>({});
     useEffect(() => {
-        isEdit && code && setCollected(code);
+        if(!(isEdit || isNew)) return
+
+        isEdit && code && setCollected({...code});
         isNew && setCollected({})
     }, [code, pathList])
 
     useEffect(() => {
+        if(!(isEdit || isNew)) return
         user && setCodeById(json)
-        if(user && json?.animal_id){
-            setAnimalById(json)
-        }
+        user && setAnimalById(json)
+        // if(user && json?.animal_id){
+            
+        // }else if(localStorage.getItem('animal.id')){
+        //     setAnimalById({animal_id:localStorage.getItem('animal.id')});
+        //     localStorage.setItem('animal.id','')
+        // }
     }, [json, pathList, user]);
 
     useEffect(()=>{
-        
         animal && setCollected({...collected,animal_id: animal.id,...animal})
     },[animal])
    
@@ -63,28 +70,32 @@ export function CodePage() {
                     }} />, false, '#3455')
                 }}>{_L('choise_pet')} <span className={isEdit ? '' : 'add'}></span></div>
                 {
-                    collected.name ? <div style={{width:'200px'}} onClick={()=>qs({animal:animal, owner:user} ).setAbsPath(['pet_profile'])}>
+                    collected.name ? <div style={{width:'200px'}} onClick={()=>qs({animal:collected, owner:user} ).setAbsPath(['pet_profile'])}>
                         {
                             <AnimalInfo animal={collected as AnimalInterface} />
                         }
                     </div> : ''
                 }
+                 {
+                    isNew&& collected.name && <div className="qr-scaner-btn" onClick={()=>{
+                        openChild(<QR_Scaner onCancel={()=>openChild(undefined)} onQrFound={(code_url)=>{
+                            setCollected({...collected, code_url});
+                            openChild(undefined)
+                           }}/>)
+                    }}>
+                        <span></span>{_L('scane_code')}
+                    </div>
+                }
                 {
                     isNew && collected.name && <label className='new-code-url' htmlFor="new-code-url">
                         <div className="label">{_L('code_id')}</div>
                         <div className="_flex">
-                            <input id='new-code-url' type="text" value={collected.code_url || ''} placeholder='Code Id' onChange={(e) => setCollected({ ...collected, code_url: e.currentTarget.value })} />
+                            <input id='new-code-url' type="text" value={collected.code_url || ''} placeholder={_L('code_id')} onChange={(e) => setCollected({ ...collected, code_url: e.currentTarget.value })} />
                             <div className="icon"></div>
                         </div>
                     </label>
                 }
-                {
-                    isNew&& collected.name && <div className="qr-scaner-btn" onClick={()=>{
-                        qs(animal && {animal:animal.id}).setAbsPath(['qr_scaner'])
-                    }}>
-                        scaner le code
-                    </div>
-                }
+               
                 {
                     collected.code_url && <>
                         <div className="code">

@@ -22,12 +22,13 @@ interface AnimalState {
         animal_id?: string,
         user_id?: string,
         all?: string,
-        no_save?: boolean
+        no_save?: boolean,
+        use_id_cache?: boolean
     }): Promise<ListType<AnimalInterface> | undefined>
     setAnimalById(json?: Record<string, any>): Promise<void>
-    updateAnimal(animal: Partial<AnimalInterface>): Promise<AnimalInterface|undefined>,
-    createAnimal(animal:Partial<AnimalInterface>):Promise<AnimalInterface|undefined>,
-    removeAnimal(animal_id:string):Promise<{isDeleted:boolean}|undefined>
+    updateAnimal(animal: Partial<AnimalInterface>): Promise<AnimalInterface | undefined>,
+    createAnimal(animal: Partial<AnimalInterface>): Promise<AnimalInterface | undefined>,
+    removeAnimal(animal_id: string): Promise<{ isDeleted: boolean } | undefined>
 }
 export const useAnimalStore = create<AnimalState>((set, get) => ({
     animal: undefined,
@@ -36,9 +37,9 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
         const h = useUserStore.getState().getHeaders();
 
         if (!h) return
-        
+
         console.log(animal, h);
- 
+
         const formData = new FormData();
 
         if (animal.images) {
@@ -46,7 +47,7 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
             console.log('images', imgs);
             let count = 0;
             for (let i = 0; i < imgs.length; i++) {
-                if((imgs[i] as any) instanceof Blob) {
+                if ((imgs[i] as any) instanceof Blob) {
                     formData.append('images_' + (count++), imgs[i]);
                 }
             }
@@ -66,15 +67,15 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
         });
 
         const _animal = await response.json();
-        
+
         if (!_animal?.id) return
-        set(({animals}) => ({
+        set(({ animals }) => ({
             animal: _animal,
-            animals:animals && {...animals,list:[_animal,...animals.list]}
+            animals: animals && { ...animals, list: [_animal, ...animals.list] }
         }));
         return _animal
     },
-    
+
     async removeAnimal(animal_id) {
         const h = useUserStore.getState().getHeaders();
         if (!h) return
@@ -83,15 +84,15 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
             headers: h.headers
         });
         const json = await response.json();
-        if(json?.isDeleted){
-            set(({animals})=>({animals:animals && {...animals, list:animals.list.filter(p=>p.id != animal_id)}}))
+        if (json?.isDeleted) {
+            set(({ animals }) => ({ animals: animals && { ...animals, list: animals.list.filter(p => p.id != animal_id) } }))
         }
 
         useCodeStore.getState().fetchCodes();
         useScaneStore.getState().fetchScanes();
         return json?.isDeleted;
     },
-    
+
     async updateAnimal(animal) {
         const h = useUserStore.getState().getHeaders();
 
@@ -104,21 +105,21 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
 
         if (animal.images) {
             let l = [];
-            
+
             const imgs = (animal as AnimalInterface & { images: (string | File)[] }).images;
             console.log('images', animal.images, imgs);
-            
+
             for (let i = 0; i < imgs.length; i++) {
-                if((imgs[i] as any) instanceof Blob) {
+                if ((imgs[i] as any) instanceof Blob) {
                     l.push(`images_${i}`)
                     formData.append('images_' + i, imgs[i]);
-                }else{
+                } else {
                     l.push(imgs[i]);
                 }
             }
-            console.log(l);
-        
-            formData.append('images',JSON.stringify(l));
+            // console.log(l);
+
+            formData.append('images', JSON.stringify(l));
             delete animal.images
         }
         for (const k in animal) {
@@ -134,20 +135,22 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
         });
 
         const _animal = await response.json();
-        console.log({ _animal });
+        // console.log({ _animal });
 
         if (!_animal?.id) return
-        set(({animals}) => ({
+        set(({ animals }) => ({
             animal: _animal,
-            animals:animals && {...animals,list:animals.list.map(a=>a.id == animal.id ? _animal : a)}
+            animals: animals && { ...animals, list: animals.list.map(a => a.id == animal.id ? _animal : a) }
         }));
         return _animal
     },
     async setAnimalById(json) {
+
         if (!json?.animal_id) return;
+
         let animal = get().animals?.list.find(a => a.id == json.animal_id);
         if (animal) {
-            set(() => ({ animal:animal && {...animal} }));
+            set(() => ({ animal: animal && { ...animal } }));
         } else {
             animal = (await get().fetchAnimals({
                 no_save: true,
@@ -159,6 +162,17 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
     async fetchAnimals(filter) {
         const h = useUserStore.getState().getHeaders()
         if (!h) return;
+        let animals: ListType<AnimalInterface> | undefined
+        if (filter?.use_id_cache) {
+            let animal = get().animals?.list.find(a => a.id == filter.animal_id);
+            if (animal) {
+                animals = { limit: 1, page: 1, list: [animal], total: 1 }
+                if (!filter?.no_save) {
+                    set(() => ({ animals }))
+                }
+                return;
+            }
+        }
         const searchParams = new URLSearchParams({});
         for (const key in filter) {
             const value = filter[key as keyof typeof filter];
@@ -167,8 +181,10 @@ export const useAnimalStore = create<AnimalState>((set, get) => ({
         const response = await fetch(`${Host}/get_animals/?${searchParams.toString()}`, {
             headers: h.headers
         });
-        const animals = (await response.json()) as ListType<AnimalInterface>
+        animals = (await response.json()) as ListType<AnimalInterface>
         if (!animals?.list) return
+
+
         if (!filter?.no_save) {
             set(() => ({ animals }))
         }

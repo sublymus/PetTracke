@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import './Admin.css'
 import { useAdminStore } from './AdminStore'
 import { type UserDetail } from '../../Database';
-import { getImg, limit } from '../../Tools/StringFormater';
+import { PhoneFormater, getImg, limit } from '../../Tools/StringFormater';
 
 export function Admin() {
 
@@ -40,7 +40,7 @@ function UserDetail({ user }: { user: UserDetail }) {
         </div>
         <div className="user ">
             <h2>{user.full_name}</h2>
-            <p>{user.phone?.phone || 'No phone'}</p>
+            <p>{(user.phone?.phone && PhoneFormater(user.phone)) || 'No phone'}</p>
             <p className='address'>{limit(user.address?.address, 75 )|| 'No address'}</p>
         </div>
     </div>

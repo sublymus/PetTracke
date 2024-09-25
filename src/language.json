@@ -53,7 +53,8 @@
         "ru": "Отключение",
         "en": "Disconnection",
         "fr": "Déconnexion"
-    }, "delete_account": {
+    },
+    "delete_account": {
         "ru": "Удалить аккаунт",
         "en": "Delete Account",
         "fr": "Supprimer le compte"
@@ -237,11 +238,6 @@
         "ru": "Состояния",
         "en": "Conditions",
         "fr": "Conditions"
-    },
-    "about_pet": {
-        "ru": "",
-        "en": "About Pet",
-        "fr": ""
     },
     "owner_info_title": {
         "ru": "Контактная информация владельца",
@@ -558,309 +554,204 @@
         "en": "please activate geolocation",
         "fr": "OK"
     },
+    "about_pet": {
+        "ru": "О питомце",
+        "en": "About Pet",
+        "fr": "À propos du pet"
+    },
     "to_help_us": {
-        "ru": "",
+        "ru": "чтобы помочь нам найти нашего питомца",
         "en": "to help us find our pet",
-        "fr": ""
+        "fr": "pour nous aider à retrouver notre animal"
     },
     "your_pet": {
-        "ru": "",
+        "ru": "Ваш питомец",
         "en": "Your Pet",
-        "fr": ""
+        "fr": "Votre animal"
     },
     "home_position": {
-        "ru": "",
+        "ru": "Домашнее местоположение",
         "en": "Home Position",
-        "fr": ""
+        "fr": "Position à domicile"
     },
     "we_found": {
-        "ru": "",
+        "ru": "Мы нашли",
         "en": "We Found",
-        "fr": ""
+        "fr": "Nous avons trouvé"
     },
     "is_here": {
-        "ru": "",
+        "ru": "Здесь",
         "en": "Is Here",
-        "fr": ""
+        "fr": "Est ici"
     },
     "ignore": {
-        "ru": "",
+        "ru": "игнорировать",
         "en": "ignore",
-        "fr": ""
+        "fr": "ignorer"
     },
     "active": {
-        "ru": "",
+        "ru": "активный",
         "en": "active",
-        "fr": ""
+        "fr": "actif"
     },
     "ok": {
-        "ru": "",
+        "ru": "Ок",
         "en": "Ok",
-        "fr": ""
+        "fr": "Ok"
     },
-    "not_code_yet":{
-        "ru":"",   
-        "en":"no pets yet",   
-        "fr":""   
+    "not_code_yet": {
+        "ru": "нет кодов пока",
+        "en": "no codes yet",
+        "fr": "pas encore de codes"
     },
-    "not_scane_yet":{
-        "ru":"",   
-        "en":"no scans yet",   
-        "fr":""   
+    "not_scane_yet": {
+        "ru": "нет сканов пока",
+        "en": "no scans yet",
+        "fr": "pas encore de scans"
     },
-    "not_pets_yet":{
-        "ru":"",   
-        "en":"no pets yet",   
-        "fr":""   
+    "not_pets_yet": {
+        "ru": "нет питомцев пока",
+        "en": "no pets yet",
+        "fr": "pas encore d'animaux"
     },
-    "basic_info":{
-        "ru":"",   
-        "en":"Basic Infomations",   
-        "fr":""   
+    "basic_info": {
+        "ru": "Основная информация",
+        "en": "Basic Information",
+        "fr": "Informations de base"
     },
-    "veto_info":{
-        "ru":"",   
-        "en":"Veterinarian Infomations",   
-        "fr":""   
+    "veto_info": {
+        "ru": "Информация о ветеринаре",
+        "en": "Veterinarian Information",
+        "fr": "Informations vétérinaires"
     },
-    "subscription_page":{
-        "ru":"",   
-        "en":"Subscription Page",   
-        "fr":""   
+    "subscription_page": {
+        "ru": "Страница подписки",
+        "en": "Subscription Page",
+        "fr": "Page d'abonnement"
     },
-    "hoose_plan":{
-        "ru":"",   
-        "en":"Choose Your Subscription Plan",   
-        "fr":""   
+    "choose_plan": {
+        "ru": "Выберите свой тарифный план",
+        "en": "Choose Your Subscription Plan",
+        "fr": "Choisissez votre plan d'abonnement"
     },
-    "plan_message":{
-        "ru":"",   
-        "en":"Select a plan that suits your needs for enhanced pet tracking features. Enjoy peace of mind knowing your pet's location and heath are monitored.",   
-        "fr":""   
+    "plan_message": {
+        "ru": "Выберите план, который соответствует вашим потребностям для улучшенного отслеживания питомцев. Получите уверенность, зная, что местоположение и здоровье вашего питомца контролируются.",
+        "en": "Select a plan that suits your needs for enhanced pet tracking features. Enjoy peace of mind knowing your pet's location and health are monitored.",
+        "fr": "Sélectionnez un plan adapté à vos besoins pour des fonctionnalités de suivi d'animaux améliorées. Profitez de la tranquillité d'esprit en sachant que la position et la santé de votre animal sont surveillées."
     },
-    "basic_plan":{
-        "ru":"",   
-        "en":"Basic Plan",   
-        "fr":""   
+    "basic_plan": {
+        "ru": "Базовый план",
+        "en": "Basic Plan",
+        "fr": "Plan de base"
     },
-    "track_pet":{
-        "ru":"",   
-        "en":"Track your pet's location",   
-        "fr":""   
+    "track_pet": {
+        "ru": "Отслеживайте местоположение вашего питомца",
+        "en": "Track your pet's location",
+        "fr": "Suivez la localisation de votre animal"
     },
-    "health_monitoring":{
-        "ru":"",   
-        "en":"Health monitoring",   
-        "fr":""   
+    "health_monitoring": {
+        "ru": "Мониторинг здоровья",
+        "en": "Health monitoring",
+        "fr": "Suivi de la santé"
     },
-    "track_pet_max2":{
-        "ru":"",   
-        "en":"Track maximun 2 pets",   
-        "fr":""   
+    "track_pet_max2": {
+        "ru": "Отслеживание максимум 2 питомцев",
+        "en": "Track maximum 2 pets",
+        "fr": "Suivez un maximum de 2 animaux"
     },
-    "prem_plan":{
-        "ru":"",   
-        "en":"Premium Plan",   
-        "fr":""   
+    "prem_plan": {
+        "ru": "Премиум план",
+        "en": "Premium Plan",
+        "fr": "Plan Premium"
     },
-    "all_basic":{
-        "ru":"",   
-        "en":"All basic Features",   
-        "fr":""   
+    "all_basic": {
+        "ru": "Все базовые функции",
+        "en": "All basic Features",
+        "fr": "Toutes les fonctionnalités de base"
     },
-    "support_24_7":{
-        "ru":"",   
-        "en":"24/7 support",   
-        "fr":""   
+    "support_24_7": {
+        "ru": "Круглосуточная поддержка",
+        "en": "24/7 support",
+        "fr": "Assistance 24/7"
     },
-    "heath_report":{
-        "ru":"",   
-        "en":"Monthy Heath reports",   
-        "fr":""   
+    "heath_report": {
+        "ru": "Ежемесячные отчеты о здоровье",
+        "en": "Monthly Health reports",
+        "fr": "Rapports mensuels de santé"
     },
-    "track_pet_max5":{
-        "ru":"",   
-        "en":"Track maximun 5 pets",   
-        "fr":""   
+    "track_pet_max5": {
+        "ru": "Отслеживание максимум 5 питомцев",
+        "en": "Track maximum 5 pets",
+        "fr": "Suivez un maximum de 5 animaux"
     },
-    "familly_plan":{
-        "ru":"",   
-        "en":"Familly Plan",   
-        "fr":""   
+    "familly_plan": {
+        "ru": "Семейный план",
+        "en": "Family Plan",
+        "fr": "Plan Familial"
     },
-    "all_prem":{
-        "ru":"",   
-        "en":"All Premium Features",   
-        "fr":""   
+    "all_prem": {
+        "ru": "Все премиум функции",
+        "en": "All Premium Features",
+        "fr": "Toutes les fonctionnalités Premium"
     },
-    "familly_share":{
-        "ru":"",   
-        "en":"Familly Sharing",   
-        "fr":""   
+    "familly_share": {
+        "ru": "Семейный доступ",
+        "en": "Family Sharing",
+        "fr": "Partage familial"
     },
-    "track_pet_max10":{
-        "ru":"",   
-        "en":"Track maximun 10 pets",   
-        "fr":""   
+    "track_pet_max10": {
+        "ru": "Отслеживание максимум 10 питомцев",
+        "en": "Track maximum 10 pets",
+        "fr": "Suivez un maximum de 10 animaux"
     },
-    "pay_detail":{
-        "ru":"",   
-        "en":"Payment Details",   
-        "fr":""   
+    "pay_detail": {
+        "ru": "Платежные реквизиты",
+        "en": "Payment Details",
+        "fr": "Détails du paiement"
     },
-    "enter_pay_info":{
-        "ru":"",   
-        "en":"Enter your Payment informations",   
-        "fr":""   
+    "enter_pay_info": {
+        "ru": "Введите информацию о платеже",
+        "en": "Enter your Payment information",
+        "fr": "Entrez vos informations de paiement"
     },
-    "logout_message":{
-        "ru":"",   
-        "en":"'Are you sure to Logout'",   
-        "fr":""   
+    "logout_message": {
+        "ru": "Вы уверены, что хотите выйти?",
+        "en": "Are you sure to Logout?",
+        "fr": "Êtes-vous sûr de vouloir vous déconnecter?"
     },
-    "scanne_section":{
-        "ru":"",   
-        "en":"Scanner Section",   
-        "fr":""   
+    "scanne_section": {
+        "ru": "Раздел сканирования",
+        "en": "Scanner Section",
+        "fr": "Section Scanner"
     },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
+    "address_missing": {
+        "ru": "Адрес отсутствует",
+        "en": "Address missing",
+        "fr": "Adresse manquante"
     },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
+    "scane_code": {
+        "ru": "Сканировать код",
+        "en": "Scan the code",
+        "fr": "Scanner le code"
     },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
+    "years": {
+        "ru": " лет",
+        "en": "years",
+        "fr": "ans"
     },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
+    "dog": {
+        "ru": "собака",
+        "en": "dog",
+        "fr": "chien"
     },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
+    "cat": {
+        "ru": "кошка",
+        "en": "cat",
+        "fr": "chat"
     },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
-    },
-    "":{
-        "ru":"",   
-        "en":"",   
-        "fr":""   
+    "return": {
+        "ru": "вернуться",
+        "en": "return",
+        "fr": "retour"
     }
 }

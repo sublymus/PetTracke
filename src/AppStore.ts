@@ -1,6 +1,7 @@
 import { SRouter } from "./Tools/SRouter";
 export const DefaultImage = '/src/res/photo2.png';
-
+import { create } from "zustand";
+import { _L } from "./Tools/_L";
 
 const Pages = {
     '/': {
@@ -18,12 +19,9 @@ const Pages = {
         pricing:{},
         admin:{},
         pet_profile:{},
-        qr_scaner:{}
     }
 }
 
-import { create } from "zustand";
-import { _L } from "./Tools/_L";
 interface AppState {
     lang:typeof _L.lang,
     back_color: string;
