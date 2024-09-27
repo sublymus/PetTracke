@@ -1,7 +1,7 @@
 
 .code {
     
-    min-width: 160px;
+    width: 180px;
     scroll-snap-align: center;
     display: inline-flex;
     flex-direction: column;
@@ -14,6 +14,10 @@
     -moz-box-shadow: 0px 0px 50px -33px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 50px -33px rgba(66, 68, 90, 1);
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+.code .animal-info .name{
+    text-align: center;
+    width: 160px;
 }
 
 .code .animal-info {
@@ -43,4 +47,6 @@
 .code .date {
     font-size: 0.9em;
     color: var(--discret);
+    text-align: center;
+    width: 160px;
 }

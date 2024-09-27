@@ -152,16 +152,16 @@
     box-shadow: 0px 0px 30px -10px rgba(66, 68, 90, 1);
 }
 
-.center .animal .right {
-    flex-wrap: wrap;
-    min-width: 200px;
-    padding: 0 20px;
+
+.center .animal .right{
+    color: var(--discret);
+    width: 100%;
+    padding: 10px;
+    
 }
 
-.center .animal .right div {
-    color: var(--discret);
-}
 .center .animal h3 {
+    color: var(--color);
     margin: 14px 0 7px 0;
 }
 

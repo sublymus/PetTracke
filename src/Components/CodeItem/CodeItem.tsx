@@ -13,7 +13,7 @@ export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:bo
             <div className="notif-new-scane"></div>
             {animal_info && <div className="animal-info">
                 <div className="image" style={{ background: code.images[0] && getImg(code.images[0]) }}></div>
-                <div className="text _limit-text">
+                <div className="text">
                     <div className="name _limit-text">{code.name}</div>
                     {/* <div className="count">{32}<span></span></div> */}
                 </div>
@@ -26,8 +26,8 @@ export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:bo
                     viewBox={`0 0 256 256`}
                 />
             </div>
-            <div className="code_url">{code.code_url}</div>
-            <div className="date">{new Date(code.created_at).toDateString()}</div>
+            <div className="code_url _limit-text">{code.code_url}</div>
+            <div className="date _limit-text">{new Date(code.created_at).toDateString()}</div>
         </div>
     )
 }
