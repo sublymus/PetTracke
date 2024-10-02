@@ -3,7 +3,6 @@ import './QR_Scaner.css'
 import QrScanner from "qr-scanner";
 import { _L } from '../../Tools/_L';
 
-
 export function QR_Scaner({ onCancel, onQrFound }: { onCancel?: () => any, onQrFound?: (qrCode: string) => any }) {
 
     const video = useRef<HTMLVideoElement>(null);

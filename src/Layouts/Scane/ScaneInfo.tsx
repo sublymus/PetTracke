@@ -98,7 +98,7 @@ export function ScaneInfo() {
                 <h3 className="title">
                     {
                         isOwner && <span className='return' onClick={() => {
-                            if (!localStorage.getItem('user.rating')) {
+                            if (isFounder && !localStorage.getItem('user.rating')) {
                                 openChild(<RatingPage
                                     env='center'
                                     onCancel={() => {

@@ -33,7 +33,11 @@ export function ScaneItem({ scane }: { scane: ScaneInterface }) {
         <div className="address ">
             <span></span><div>{scane.address?.address||_L('address_missing')}</div>
         </div>
-        <div className="date"><span></span>{new Date(scane.created_at).toDateString()}</div>
+        <div className="date"><span></span>{new Date(scane.created_at).toLocaleDateString(_L.lang, {
+                day:'numeric',
+                year:'numeric',
+                month:'long'
+            })}</div>
         <div className="time"><span></span>{new Date(scane.created_at).toLocaleTimeString()}</div>
     </div>
 }

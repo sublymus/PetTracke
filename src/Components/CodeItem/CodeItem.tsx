@@ -3,6 +3,7 @@ import { CodeInterface } from '../../Database';
 import { getImg } from '../../Tools/StringFormater';
 import './CodeItem.css'
 import { Host } from '../../Config';
+import { _L } from '../../Tools/_L';
 
 
 export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:boolean ,onClick:()=>any, code: CodeInterface }) {
@@ -27,7 +28,11 @@ export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:bo
                 />
             </div>
             <div className="code_url _limit-text">{code.code_url}</div>
-            <div className="date _limit-text">{new Date(code.created_at).toDateString()}</div>
+            <div className="date _limit-text">{new Date(code.created_at).toLocaleDateString(_L.lang, {
+                day:'numeric',
+                year:'numeric',
+                month:'long'
+            })}</div>
         </div>
     )
 }

@@ -36,7 +36,7 @@ export function Center() {
                 {_L('app_name')}
             </h1>
             <h2>{_L('codes_list')} <div className="add" onClick={() => qs().setAbsPath(['new_code'])}><span></span>{_L('add_new')}</div></h2>
-            <div className="list">
+            <div className="list" style={{transform:'translateY(-20px)'}}>
                 {
                     !codes?.list[0] && <div className="not-code">{_L('not_code_yet')}</div>
                 }
@@ -47,7 +47,7 @@ export function Center() {
                     )))
                 }
             </div>
-            <h2>{_L('scane_list')}</h2>
+            <h2 style={{margin:'0'}}>{_L('scane_list')}</h2>
             <div className="list">
                 {
                     !scanes?.list[0] && <div className="not-scane">{_L('not_scane_yet')}</div>
