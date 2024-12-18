@@ -94,6 +94,11 @@
         "en": "Password",
         "fr": "Mot de passe"
     },
+    "new_password":{
+        "ru":"Новый пароль",
+        "en":"new password",
+        "fr":"nouveau mot de pass"
+    },
     "confirm_password": {
         "ru": "Подтвердите пароль",
         "en": "Confirm Password",
@@ -145,9 +150,9 @@
         "fr": "Créer"
     },
     "code_page_bottom_prompt": {
-        "ru": "Сканируйте QR-код, чтобы просмотреть профиль питомца для получения дополнительной информации",
-        "en": "Scan the QR code to view the pet's profile for more details",
-        "fr": "Scannez le QR code pour voir le profil de l'animal pour plus de détails"
+        "ru": "Добавьте домашнее животное и QR-код ошейника",
+        "en": "Add pet and collar qr code",
+        "fr": "Ajouter un animal de compagnie et le code qr du colier"
     },
     "add_pet": {
         "ru": "Добавить питомца",

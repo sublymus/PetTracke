@@ -17,7 +17,7 @@ interface UserState {
         email: string,
         password: string,
     }): Promise<UserInterface | undefined>
-    updateUser(data: Partial<UserInterface>): Promise<void>;
+    updateUser(data: Partial<UserInterface & {password:string , new_password:string}>): Promise<void>;
     getHeaders(): { user: UserInterface, headers: Headers } | undefined
 }
 export const useUserStore = create<UserState>((set) => ({
@@ -94,6 +94,12 @@ export const useUserStore = create<UserState>((set) => ({
         }
         if (data.full_name) {
             formData.append('full_name', data.full_name);
+        }
+        if (data.new_password) {
+            formData.append('password', data.new_password);
+        }
+        if (data.password) {
+            formData.append('last_password', data.password);
         }
 
         const response = await fetch(`${Host}/edit_me`, {

@@ -301,6 +301,7 @@ console.log(images);
                                         setLoading(true);
                                         createAnimal(collected).then(_res => {
                                             setLoading(false)
+                                            _res?.id && localStorage.setItem('new_animal', _res?.id )
                                             navBack();
                                         });
                                     } else {

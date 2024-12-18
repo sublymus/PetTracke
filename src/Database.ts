@@ -100,6 +100,7 @@ export interface UserInterface {
     phone?: PhoneInterface,
     address?: AddressInterface,
     token?: string,
+    is_pass_ok:boolean,
     newAddress: string
     created_at: string,
 }

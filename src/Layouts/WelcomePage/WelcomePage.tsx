@@ -17,8 +17,17 @@ export function WelcomePage() {
     const pages: any = {
         login: <Connexion />,
         signup: <Connexion />,
-        pricing: <PricingPage/>
+        pricing: <PricingPage />
     }
+
+    useEffect(() => {
+        console.log(json);
+        if (json?.create_code) {
+            
+            localStorage.setItem('create_code', json.create_code);
+        }
+    }, [json]);
+
     const page = !json?.welcome_page ? <Welcome /> : pages[json.welcome_page]
     return <div className="welcome-page">
         <div className="ctn">
@@ -171,15 +180,18 @@ function Connexion() {
                     mode: json?.welcome_page
                 }).then((user) => {
                     setLoading(false);
+                    console.log({ user });
+
                     if (user?.id) {
                         ////
+                        qs().setAbsPath(['list'])
                         console.log('zoo user', user);
                     } else {
-                        setAuthError((user as any))
+                        setAuthError((user as any).message || user)
                     }
                 })
             }
-        }}>{json?.welcome_page == 'login' ? _L('login'): _L('signup')}</div>
+        }}>{json?.welcome_page == 'login' ? _L('login') : _L('signup')}</div>
         <p className='prompt-account'>{
             json?.welcome_page == 'login'
                 ?

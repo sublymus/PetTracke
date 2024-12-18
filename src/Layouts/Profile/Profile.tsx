@@ -12,14 +12,15 @@ import NotifContext from '../../Tools/Notification';
 export function Profile() {
 
     const { user, updateUser, disconnection, getAccess, deleteUserAccount } = useUserStore()
-    const [collected, setCollected] = useState<Partial<UserInterface>>(user || {});
+    const [collected, setCollected] = useState<Partial<UserInterface & {password:string, new_password:string}>>(user || {});
     const { navBack, qs } = useAppRouter();
     const { lang, openChild } = useAppStore();
 
     const [open_info, setOpen_info] = useState(false);
     useEffect(() => {
         setCollected({
-            ...user
+            ...user,
+            password:''
         })
     }, [user])
 
@@ -104,7 +105,7 @@ export function Profile() {
                             <label htmlFor="profile-input-name">
                                 <div className="label">{_L('name', lang)}</div>
                                 <div className="_flex">
-                                    <input id='profile-input-name' value={collected.full_name || ''} placeholder='Name' type="text"
+                                    <input id='profile-input-name' value={collected.full_name || ''} placeholder={_L('name', lang)} type="text"
                                         onChange={e => setCollected({ ...collected, full_name: e.currentTarget.value })}
                                         onKeyUp={e => {
                                             if (e.code == 'Enter') {
@@ -122,13 +123,56 @@ export function Profile() {
                                     <div className="icon"></div>
                                 </div>
                             </label>
+                           { user.is_pass_ok && <label htmlFor="profile-input-password">
+                                <div className="label">{_L('password', lang)}</div>
+                                <div className="_flex">
+                                    <input id='profile-input-password' value={collected.password || ''} placeholder={_L('password', lang)} type="text"
+                                        onChange={e => setCollected({ ...collected, password: e.currentTarget.value })}
+                                        onKeyUp={e => {
+                                            if (e.code == 'Enter') {
+                                                e.currentTarget.blur();
+                                            }
+                                        }}
+                                        onBlur={() => {
+                                            console.log(collected.password);
+
+                                            updateUser({
+                                                password: collected.password
+                                            });
+                                        }}
+                                    />
+                                    <div className="icon"></div>
+                                </div>
+                            </label>}
+                            
+                            <label htmlFor="profile-input-new_password">
+                                <div className="label">{_L('new_password', lang)} { !user.is_pass_ok && <div className="_red-signal"></div>}</div>
+                                <div className="_flex">
+                                    <input id='profile-input-new_password' value={collected.new_password || ''} placeholder={_L('new_password', lang)} type="text"
+                                        onChange={e => setCollected({ ...collected, new_password: e.currentTarget.value })}
+                                        onKeyUp={e => {
+                                            if (e.code == 'Enter') {
+                                                e.currentTarget.blur();
+                                            }
+                                        }}
+                                        onBlur={() => {
+                                            console.log(collected.new_password);
+
+                                            updateUser({
+                                                new_password: collected.new_password
+                                            });
+                                        }}
+                                    />
+                                    <div className="icon"></div>
+                                </div>
+                            </label>
                             <label htmlFor="profile-input-phone">
 
                                 <div className="label">{_L('phone')} {!user.phone?.phone && <div className="_red-signal"></div>}</div>
                                 <div className="_flex">
                                     <PhoneInput
                                         country={'us'}
-                                        value={collected.phone?.phone || ''}
+                                        value={collected.password || ''}
                                         onChange={(phone, data: any) => setCollected({
                                             ...collected, phone: {
                                                 id: '',

@@ -8,7 +8,6 @@ import { _L } from '../../Tools/_L';
 
 export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:boolean ,onClick:()=>any, code: CodeInterface }) {
 
-
     return (
         <div key={code.id} className="code" onClick={() => onClick()}>
             <div className="notif-new-scane"></div>
@@ -23,7 +22,7 @@ export function CodeItem({ code ,onClick , animal_info = true}: {animal_info?:bo
                 <QRCode
                     size={256}
                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                    value={`${Host||location.host}/s_c/${code.code_url}`}
+                    value={`${Host||location.host}/s/${code.code_url}`}
                     viewBox={`0 0 256 256`}
                 />
             </div>

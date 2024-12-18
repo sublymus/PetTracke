@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+/* import { useEffect, useRef, useState } from 'react';
 import { useAppRouter } from '../../AppStore';
 import './QR_Scaner.css'
 import QrScanner from "qr-scanner";
@@ -123,4 +123,4 @@ export function QR_Scaner({ onCancel, onQrFound }: { onCancel?: () => any, onQrF
         </div>
             <span className='qr_code'>{qr_code}</span>
     </div>
-}
+} */

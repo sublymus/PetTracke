@@ -42,6 +42,7 @@ function App() {
     openChild(undefined)
   }, [pathList])
 
+  
   return (
     current('scane_info') ? <ScaneInfo /> :
       current('admin') && json?.uuid == 'by_ng' ? <Admin /> :

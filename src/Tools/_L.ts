@@ -14,7 +14,7 @@ type _L_TYPE = typeof l & {
     lang:listLang
 }
 
-export const _L : _L_TYPE = l  as _L_TYPE
+export const _L : _L_TYPE = l  as string &_L_TYPE
 _L.lang = localStorage.getItem('setting.lang') as (listLang|undefined)||'ru';
 _L.setLang = (lang)=>{
     _L.lang = lang

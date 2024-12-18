@@ -75,7 +75,7 @@ function Home({ address }: { address: AddressInterface }) {
   </div>
 }
 
-function Focus({ setPosition ,mode = 'scane' }: { mode?: 'scane' | 'found'|'user',position?: [number, number], setPosition: (position: [number, number]) => any }) {
+function Focus({ setPosition, mode = 'scane' }: { mode?: 'scane' | 'found' | 'user', position?: [number, number], setPosition: (position: [number, number]) => any }) {
   const [center, setCenter] = useState<[number, number]>()
   const map = useMapEvents({
     click() {
@@ -91,7 +91,7 @@ function Focus({ setPosition ,mode = 'scane' }: { mode?: 'scane' | 'found'|'user
   const [enable_loc, setEnable_loc] = useState(false);
   const [openMessage, setOpenMessage] = useState(true);
 
-  useEffect(()=>{
+  useEffect(() => {
     navigator.permissions.query({ name: "geolocation" }).then((result) => {
       console.log(result.state);
       if (result.state === "granted") {
@@ -114,7 +114,9 @@ function Focus({ setPosition ,mode = 'scane' }: { mode?: 'scane' | 'found'|'user
   })
 
   console.log('mode', mode);
-  
+  useEffect(() => {
+    map.locate();
+  }, [])
   return <>
     <div className="focus" onClick={() => {
       map.locate();
@@ -122,12 +124,12 @@ function Focus({ setPosition ,mode = 'scane' }: { mode?: 'scane' | 'found'|'user
     }}></div>
     {
       !enable_loc &&
-      openMessage && 
+      openMessage &&
       mode != 'scane' &&
-      <div className="loc-message">{mode == 'found' ? <>{_L('active_geo_loc')} <br />{_L('to_help_us')}</>:mode=='user'?<>{_L('current_location')}</>:''}
+      <div className="loc-message">{mode == 'found' ? <>{_L('active_geo_loc')} <br />{_L('to_help_us')}</> : mode == 'user' ? <>{_L('current_location')}</> : ''}
         <div className="btns">
-          <div className="ignore" onClick={()=>setOpenMessage(false)}>{_L('ignore')}</div>
-          <div className="active" onClick={()=>{
+          <div className="ignore" onClick={() => setOpenMessage(false)}>{_L('ignore')}</div>
+          <div className="active" onClick={() => {
             map.locate();
             setOpenMessage(false)
           }}>{_L('active')}</div>
@@ -143,7 +145,7 @@ function Focus({ setPosition ,mode = 'scane' }: { mode?: 'scane' | 'found'|'user
 
 }
 
-function UserMaker({ position, children, mode = 'scane' }: { mode?: 'scane' | 'found'|'user', children: JSX.Element[], position: [number, number] }) {
+function UserMaker({ position, children, mode = 'scane' }: { mode?: 'scane' | 'found' | 'user', children: JSX.Element[], position: [number, number] }) {
   const map = useMap();
 
   useEffect(() => {
@@ -158,7 +160,7 @@ function UserMaker({ position, children, mode = 'scane' }: { mode?: 'scane' | 'f
   })}>{children}</Marker>
 }
 
-function MapView({ address, setAddress, canChange, home, mode = 'scane', scane }: { scane?: ScaneInterface, mode?: 'scane' | 'found'|'user', home?: AddressInterface, address?: AddressInterface, setAddress?: (address: AddressInterface) => any, canChange?: boolean }) {
+function MapView({ address, setAddress, canChange, home, mode = 'scane', scane }: { scane?: ScaneInterface, mode?: 'scane' | 'found' | 'user', home?: AddressInterface, address?: AddressInterface, setAddress?: (address: AddressInterface) => any, canChange?: boolean }) {
   const [position, setPosition] = useState([parseFloat(home?.latitude || '55.5764668'), parseFloat(home?.longitude || '36.1377381')])
 
   const [search, setSearch] = useState(address?.address || '');

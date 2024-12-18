@@ -205,7 +205,7 @@ export function ScaneInfo() {
                                 <QRCode
                                     size={256}
                                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                    value={`${Host}/s_c/${'123456' || ''}`}
+                                    value={`${Host}/s/${scane?.code_url}`}
                                     viewBox={`0 0 256 256`}
                                 />
                                 <p>{scane?.code_url}</p>

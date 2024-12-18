@@ -24,24 +24,35 @@ export function CodePage() {
     const [loading, setLoading] = useState(false);
     const isNew = current('new_code');
     const isEdit = current('code');
-    const [collected, setCollected] = useState<Partial<CodeInterface>>({});
+    const [collected, setCollected] = useState<Partial<CodeInterface>>({code_url:json?.create_code});
+    console.log({create_code:json?.create_code});
+    
     useEffect(() => {
         if(!(isEdit || isNew)) return
 
         isEdit && code && setCollected({...code});
-        isNew && setCollected({})
+        isNew && setCollected({});
+
     }, [code, pathList])
 
     useEffect(() => {
+
         if(!(isEdit || isNew)) return
         user && setCodeById(json)
-        user && setAnimalById(json)
+        const animalId = localStorage.getItem('new_animal');
+        user && setAnimalById({animal_id:json?.animal_id||animalId});
+        if (animalId) {
+            localStorage.removeItem('new_animal');
+        }
+
         // if(user && json?.animal_id){
             
         // }else if(localStorage.getItem('animal.id')){
         //     setAnimalById({animal_id:localStorage.getItem('animal.id')});
         //     localStorage.setItem('animal.id','')
         // }
+
+        setCollected({...collected,code_url:json?.create_code});
     }, [json, pathList, user]);
 
     useEffect(()=>{
@@ -97,12 +108,12 @@ export function CodePage() {
                 }
                
                 {
-                    collected.code_url && <>
+                    collected.code_url && collected.animal_id && <>
                         <div className="code">
                             <QRCode
                                 size={256}
                                 style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                value={`${Host||location.host}/s_c/${collected?.code_url || ''}`}
+                                value={`${Host||location.host}/s/${collected?.code_url || ''}`}
                                 viewBox={`0 0 256 256`}
                             />
                         </div>
@@ -179,7 +190,11 @@ function ChoiseAnimal({ setAnimal }: { setAnimal: (animal: AnimalInterface) => v
     const { openChild } = useAppStore();
     const { qs } = useAppRouter()
     useEffect(() => {
-        fetchAnimals()
+        fetchAnimals().then((list)=>{
+            if(list?.list.length == 0 ){
+                qs().setAbsPath(['new_animal'])
+            }
+        })
     }, [])
 
     return (
