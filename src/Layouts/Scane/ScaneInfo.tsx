@@ -97,7 +97,7 @@ export function ScaneInfo() {
             <div className="ctn">
                 <h3 className="title">
                     {
-                        isOwner && <span className='return' onClick={() => {
+                         <span className='return' onClick={() => {
                             if (isFounder && !localStorage.getItem('user.rating')) {
                                 openChild(<RatingPage
                                     env='center'

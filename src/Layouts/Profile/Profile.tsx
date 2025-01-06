@@ -171,8 +171,8 @@ export function Profile() {
                                 <div className="label">{_L('phone')} {!user.phone?.phone && <div className="_red-signal"></div>}</div>
                                 <div className="_flex">
                                     <PhoneInput
-                                        country={'us'}
-                                        value={collected.password || ''}
+                                        country={'ru'}
+                                        value={collected.phone?.phone || '+7'}
                                         onChange={(phone, data: any) => setCollected({
                                             ...collected, phone: {
                                                 id: '',
@@ -239,7 +239,7 @@ export function Profile() {
                         confirmText={_L('logout')}
                         onCancel={() => openChild(undefined)}
                         onConfirm={() => disconnection()}
-                    />, undefined, '#3455'
+                    />, true, '#0409'
                 )
             }}
             >{_L('disconnection')} <span></span></div>

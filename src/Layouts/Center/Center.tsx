@@ -93,8 +93,8 @@ export function Center() {
                             <div className="image" style={{ background: a.images[0] && getImg(a.images[0]) }}></div>
                             <div className="right ">
                                 <h3 className="name _limit-text">{a.name}</h3>
-                                <div className="i-2 _limit-text">{a.species}{a.breed && (((a.species || '') && ', ') + a.breed)}{a.age && (((a.species || a.breed || '') && ', ') + a.age + ' ' + _L('years'))} </div>
-                                <div className="color _limit-text">{a.sex} {a.color && (((a.sex || '') && ', ') + a.color)}</div>
+                                <div className="i-2 _limit-text">{_L(a.species as any)}{a.breed && (((_L(a.species as any) || '') && ', ') + a.breed)}{a.age && (((_L(a.species as any) || a.breed || '') && ', ') + a.age + ' ' + _L('years'))} </div>
+                                <div className="color _limit-text">{_L(a.sex as any)} {a.color && (((_L(a.sex as any) || '') && ', ') + a.color)}</div>
                             </div>
                         </div>
                     )))

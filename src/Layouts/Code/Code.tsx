@@ -175,7 +175,7 @@ export function CodePage() {
                             navBack();
                         });
                     }}>
-                        <span></span>{_L('create')}
+                        <span></span>{_L('confirm')}
                     </div>
                 }
             </div>
@@ -221,7 +221,7 @@ function AnimalInfo({ animal, onClick }: { animal: AnimalInterface, onClick?: ()
         <div className="image" style={{ background: getImg(animal?.images?.[0]) }}></div>
         <div className="right ">
             <h2 className="name" >{animal?.name}</h2>
-            <div>{animal?.species}, {animal?.breed}, {animal?.color}</div>
+            <div>{animal?.species && _L(animal.species as any)}, {animal?.breed}, {animal?.color}</div>
         </div>
     </div>
 }

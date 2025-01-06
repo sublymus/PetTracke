@@ -85,7 +85,7 @@
         "fr": "Adresse du vétérinaire"
     },
     "animal_veto_clinic": {
-        "ru": "Клиника ветеринара",
+        "ru": "Адрес клиники",
         "en": "Veterinarian Clinic",
         "fr": "Clinique vétérinaire"
     },
@@ -103,6 +103,11 @@
         "ru": "Подтвердите пароль",
         "en": "Confirm Password",
         "fr": "Confirmer le mot de passe"
+    },
+    "confirm": {
+        "ru": "Подтверждать",
+        "en": "Confirm",
+        "fr": "Confirmer"
     },
     "codes_list": {
         "ru": "Список кодов",
