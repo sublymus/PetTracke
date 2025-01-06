@@ -72,7 +72,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
                 <label htmlFor="animal-input-species">
@@ -100,7 +99,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
                 <label htmlFor="animal-input-color">
@@ -117,7 +115,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
                 <label htmlFor="animal-input-age">
@@ -167,7 +164,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
                 <label htmlFor="animal-input-vaccines">
@@ -184,7 +180,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
                 <label htmlFor="animal-input-allergies">
@@ -201,7 +196,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
 
@@ -214,7 +208,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
 
@@ -234,7 +227,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
 
@@ -252,7 +244,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
 
@@ -270,7 +261,6 @@ console.log(images);
                                 isEdit && updateAnimal(collected);
                             }}
                         />
-                        <div className="icon"></div>
                     </div>
                 </label>
 

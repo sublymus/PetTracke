@@ -40,7 +40,7 @@ function Welcome() {
     const { setLang } = useAppStore()
     const { qs } = useAppRouter()
     return <>
-        <select name="language" id="language" value={localStorage.getItem('setting.lang') || 'en'} onChange={(e) => {
+        <select name="language" id="language" value={localStorage.getItem('setting.lang') || 'ru'} onChange={(e) => {
             const lang = e.currentTarget.value;
             setLang(lang as any);
         }}>

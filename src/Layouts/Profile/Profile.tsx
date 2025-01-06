@@ -120,7 +120,6 @@ export function Profile() {
                                             });
                                         }}
                                     />
-                                    <div className="icon"></div>
                                 </div>
                             </label>
                            { user.is_pass_ok && <label htmlFor="profile-input-password">
@@ -141,7 +140,6 @@ export function Profile() {
                                             });
                                         }}
                                     />
-                                    <div className="icon"></div>
                                 </div>
                             </label>}
                             
@@ -163,7 +161,6 @@ export function Profile() {
                                             });
                                         }}
                                     />
-                                    <div className="icon"></div>
                                 </div>
                             </label>
                             <label htmlFor="profile-input-phone">
@@ -193,7 +190,6 @@ export function Profile() {
                                                 phone: collected.phone
                                             });
                                         }} />
-                                    <div className="icon"></div>
                                 </div>
                             </label>
                             <label htmlFor="profile-input-address">
@@ -205,7 +201,6 @@ export function Profile() {
                                         onChange={() => undefined}
                                         onClick={() => qs().setAbsPath(['choise_address'])}
                                     />
-                                    <div className="icon"></div>
                                 </div>
                             </label>
                         </>
