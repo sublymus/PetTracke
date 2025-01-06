@@ -126,8 +126,8 @@ console.log(images);
 
                     }}>
                         {
-                            Array.from(Array(20).keys()).map(n => (
-                                <option value={(n + 1) + ''} selected={collected.age == (n + 1) + ''}>{n + 1}</option>
+                            Array.from(Array(40).keys()).map(n => (
+                                <option value={(n + 0.5) + ''} selected={collected.age == (n + 1) + ''}>{n + 1}</option>
                             ))
                         }
                     </select>
